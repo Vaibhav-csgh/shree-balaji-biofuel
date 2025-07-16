@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery - Shree Balaji Biofuels</title>
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Modern CSS Reset & Variables */
+      :root {
+        /* Colors - Professional Green Palette */
+        --primary-50: #f0fdf4;
+        --primary-100: #dcfce7;
+        --primary-200: #bbf7d0;
+        --primary-300: #86efac;
+        --primary-400: #4ade80;
+        --primary-500: #22c55e;
+        --primary-600: #16a34a;
+        --primary-700: #15803d;
+        --primary-800: #166534;
+        --primary-900: #14532d;
+
+        /* Neutrals */
+        --neutral-50: #fafafa;
+        --neutral-100: #f5f5f5;
+        --neutral-200: #e5e5e5;
+        --neutral-300: #d4d4d4;
+        --neutral-400: #a3a3a3;
+        --neutral-500: #737373;
+        --neutral-600: #525252;
+        --neutral-700: #404040;
+        --neutral-800: #262626;
+        --neutral-900: #171717;
+
+        /* Typography */
+        --font-display: "Space Grotesk", system-ui, sans-serif;
+        --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+        --font-montserrat: "Montserrat", system-ui, sans-serif;
+
+        /* Spacing */
+        --space-xs: 0.5rem;
+        --space-sm: 0.75rem;
+        --space-md: 1rem;
+        --space-lg: 1.5rem;
+        --space-xl: 2rem;
+        --space-2xl: 3rem;
+        --space-3xl: 4rem;
+        --space-4xl: 6rem;
+
+        /* Shadows */
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+          0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+          0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+          0 8px 10px -6px rgb(0 0 0 / 0.1);
+        --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+
+        /* Gradients */
+        --gradient-primary: linear-gradient(
+          135deg,
+          var(--primary-600) 0%,
+          var(--primary-700) 100%
+        );
+        --gradient-hero: linear-gradient(
+          135deg,
+          var(--primary-50) 0%,
+          var(--primary-100) 100%
+        );
+
+        /* Border Radius */
+        --radius-md: 0.75rem;
+        --radius-lg: 1rem;
+        --radius-xl: 1.5rem;
+        --radius-full: 9999px;
+
+        /* Transitions */
+        --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 5rem;
+      }
+      body {
+        font-family: var(--font-body);
+        color: var(--neutral-800);
+        background-color: white;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      a {
+        text-decoration: none;
+      }
+
+      /* Typography */
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-display);
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: -0.025em;
+      }
+      h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 700;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: var(--space-lg);
+      }
+      h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        color: var(--neutral-900);
+        margin-bottom: var(--space-lg);
+      }
+      p {
+        margin-bottom: var(--space-lg);
+        color: var(--neutral-600);
+        font-size: 1.1rem;
+        max-width: 65ch;
+      }
+      .text-lg {
+        font-size: 1.25rem;
+        line-height: 1.5;
+      }
+
+      /* Layout & Section Styling */
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 var(--space-lg);
+      }
+      .section {
+        padding: var(--space-4xl) 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .section-header {
+        text-align: center;
+        margin-bottom: var(--space-4xl);
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+      }
+
+      .section-sub-header {
+        text-align: center;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+      }
+
+      .section-header::after {
+        content: "";
+        position: absolute;
+        bottom: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: var(--gradient-primary);
+        border-radius: var(--radius-full);
+      }
+
+      .section-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-xs);
+        padding: var(--space-xs) var(--space-md);
+        background: var(--primary-100);
+        color: var(--primary-700);
+        border-radius: var(--radius-full);
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: var(--space-lg);
+        border: 1px solid var(--primary-200);
+        box-shadow: var(--shadow-sm);
+        transform: translateY(0);
+        transition: all var(--transition-normal);
+      }
+
+      .section-badge:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-md);
+        background: var(--primary-200);
+      }
+
+      .section-badge i {
+        font-size: 1rem;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      /* Button Styling */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-sm);
+        padding: var(--space-lg) var(--space-xl);
+        border-radius: var(--radius-lg);
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all var(--transition-normal);
+        cursor: pointer;
+        border: none;
+      }
+      .btn-primary {
+        background: var(--gradient-primary);
+        color: white;
+        box-shadow: var(--shadow-md);
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-xl);
+      }
+      .btn i {
+        transition: transform var(--transition-normal);
+      }
+      .btn:hover i {
+        transform: translateX(4px);
+      }
+
+      /* Hero Section */
+      .hero-small {
+        background-color: var(--primary-50);
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .hero-text-small {
+        animation: fadeInUp 1s ease-out;
+        padding-top: 15vh;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-xs);
+        padding: var(--space-sm) var(--space-lg);
+        background: white;
+        color: var(--primary-600);
+        border-radius: var(--radius-full);
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: var(--space-xl);
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--primary-200);
+      }
+
+      /* Gallery Bento Box Grid */
+      .gallery-grid {
+        display: grid;
+        gap: var(--space-lg);
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 250px;
+      }
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-lg);
+        transition: transform var(--transition-slow);
+      }
+      .gallery-item:hover {
+        transform: scale(1.03);
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--transition-slow);
+      }
+      .gallery-item:hover img {
+        transform: scale(1.1);
+      }
+      /* Spanning items for the bento layout */
+      .item-wide {
+        grid-column: span 2;
+      }
+      .item-tall {
+        grid-row: span 2;
+      }
+
+      /* Overlay for text on images */
+      .gallery-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: var(--space-lg);
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        color: white;
+        transform: translateY(100%);
+        transition: transform var(--transition-normal);
+      }
+      .gallery-item:hover .gallery-overlay {
+        transform: translateY(0);
+      }
+      .gallery-overlay h3 {
+        font-family: var(--font-montserrat);
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: white;
+        margin: 0 0 var(--space-xs) 0;
+      }
+      .gallery-overlay p {
+        font-size: 0.9rem;
+        color: var(--neutral-200);
+        margin: 0;
+      }
+
+      /* Load More Button Container */
+      .load-more-container {
+        text-align: center;
+        margin-top: var(--space-2xl);
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out;
+      }
+
+      .animate-on-scroll.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+          grid-auto-rows: 200px;
+        }
+      }
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 var(--space-md);
+        }
+        .section {
+          padding: var(--space-3xl) 0;
+        }
+        .hero-content {
+          padding: var(--space-lg);
+        }
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+        /* Reset spans for single column layout */
+        .item-wide,
+        .item-tall {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+      }
+      @media (max-width: 480px) {
+        .btn {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar will be loaded here -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-small">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text-small">
+            <div class="hero-badge">
+              <i class="fas fa-images"></i>
+              <span>Our Visual Journey</span>
+            </div>
+            <h1>Our Gallery</h1>
+            <p class="text-lg">
+              Explore visuals of our sustainable practices, farmer empowerment,
+              and state-of-the-art facilities in action.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Introductory Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <div class="section-badge">
+            <i class="fas fa-handshake"></i>
+            <span>Visual Showcase</span>
+          </div>
+          <h2>A Glimpse Into Our World</h2>
+        </div>
+        <div class="section-sub-header animate-on-scroll">
+          <p class="text-lg">
+            Our gallery showcases the heart of our operations—from the
+            innovative technology driving green energy to the dedicated farmers
+            and ex-servicemen who make it all possible. Each image tells a story
+            of community, commitment, and our journey towards a sustainable
+            future.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section" style="padding-top: 0">
+      <div class="container">
+        <div class="gallery-grid">
+          <!-- Image 1: Wide & Tall -->
+          <div class="gallery-item item-wide item-tall animate-on-scroll">
+            <img src="assets/image-3.png" alt="Biofuel Plant" />
+            <div class="gallery-overlay">
+              <h3>State-of-the-Art Biofuel Plant</h3>
+              <p>Our cutting-edge ethanol production facility.</p>
+            </div>
+          </div>
+          <!-- Image 2 -->
+          <div
+            class="gallery-item animate-on-scroll"
+            style="animation-delay: 100ms"
+          >
+            <img src="assets/image-4.png" alt="Ethanol Processing" />
+            <div class="gallery-overlay">
+              <h3>Advanced Ethanol Processing</h3>
+              <p>Sustainable fuel production with modern technology.</p>
+            </div>
+          </div>
+          <!-- Image 3 -->
+          <div
+            class="gallery-item animate-on-scroll"
+            style="animation-delay: 200ms"
+          >
+            <img src="assets/image-2.png" alt="Farmer Training" />
+            <div class="gallery-overlay">
+              <h3>Farmer Training Programs</h3>
+              <p>Empowering local farmers with sustainable practices.</p>
+            </div>
+          </div>
+          <!-- Image 4: Wide -->
+          <div
+            class="gallery-item item-wide animate-on-scroll"
+            style="animation-delay: 300ms"
+          >
+            <img src="assets/image-1.png" alt="Green Fuel Unit" />
+            <div class="gallery-overlay">
+              <h3>Our Green Fuel Unit</h3>
+              <p>Implementing eco-friendly fuel production methods.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more-container animate-on-scroll">
+          <button class="btn btn-primary">
+            Load More
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+      // Load navbar and footer
+      fetch("navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
+        });
+
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        });
+
+      // Header scroll effect
+      window.addEventListener("scroll", () => {
+        const header = document.getElementById("header");
+        if (window.scrollY > 100) {
+          header.classList.add("header-scrolled");
+        } else {
+          header.classList.remove("header-scrolled");
+        }
+      });
+
+      // Smooth scrolling for navigation links
+      document.addEventListener("click", (e) => {
+        if (e.target.matches('a[href^="#"]')) {
+          e.preventDefault();
+          const target = document.querySelector(e.target.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        }
+      });
+
+      // Scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animated");
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Add loading animation
+      window.addEventListener("load", () => {
+        document.body.style.opacity = "1";
+      });
+
+      // Performance optimization: Lazy load images
+      if ("IntersectionObserver" in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.src = img.dataset.src || img.src;
+              img.classList.remove("lazy");
+              imageObserver.unobserve(img);
+            }
+          });
+        });
+
+        document.querySelectorAll("img[data-src]").forEach((img) => {
+          imageObserver.observe(img);
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -637,7 +637,6 @@
       .key-highlights {
         margin-top: var(--space-3xl);
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: var(--space-xl);
         position: relative;
         z-index: 1;
@@ -651,6 +650,7 @@
         transition: all var(--transition-slow);
         position: relative;
         overflow: hidden;
+        width: 100%;
       }
 
       .highlight-card::before {
@@ -782,26 +782,47 @@
 
         .enhanced-about-text p {
           font-size: 1.1rem;
-          text-align: left;
+          text-align: center; /* Fixed to remain centered */
         }
 
         .key-highlights {
           grid-template-columns: 1fr;
-          gap: var(--space-lg);
         }
 
         .floating-element {
           display: none;
         }
+
+        .about-content {
+          grid-template-columns: 1fr;
+          gap: var(--space-2xl);
+        }
       }
 
-      @media (max-width: 480px) {
+      @media (max-width: 950px) and (min-width: 761px) {
+        .key-highlights {
+          grid-template-columns: 1fr; /* One card per row */
+        }
+
+        .highlight-card {
+          width: 100%; /* Full width for each card */
+        }
+      }
+
+      @media (max-width: 760px) {
         .about-content-wrapper {
           padding: var(--space-xl);
         }
 
         .enhanced-about-text p {
           font-size: 1rem;
+          text-align: center; /* Fixed to remain centered */
+        }
+      }
+
+      @media (min-width: 951px) {
+        .key-highlights {
+          grid-template-columns: repeat(3, 1fr);
         }
       }
 
@@ -826,7 +847,6 @@
 
       .vision-content {
         display: grid;
-        grid-template-columns: 1fr 1fr;
         gap: var(--space-4xl);
         align-items: start;
       }
@@ -888,12 +908,18 @@
         color: var(--neutral-600);
         margin-bottom: var(--space-xl);
         max-width: 60ch;
+        margin-left: auto;
+        margin-right: auto; /* Centered paragraph */
       }
 
       .vision-bullets {
         list-style: none;
         padding: 0;
         margin: 0;
+        text-align: left; /* Keep bullets aligned left within centered text */
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 60ch; /* Match paragraph width */
       }
 
       .vision-bullets li {
@@ -922,7 +948,6 @@
       }
       .benefits-container {
         display: grid;
-        grid-template-columns: 1fr 1.5fr;
         gap: var(--space-md);
       }
       .benefits-header {
@@ -965,8 +990,8 @@
         text-align: center;
         transition: all var(--transition-slow);
         position: absolute;
-        width: 300px;
-        height: 220px;
+        width: 250px; /* Changed card size */
+        height: 180px; /* Changed card size */
         justify-content: center;
         border-radius: 80px 0 80px 0;
         overflow: hidden;
@@ -983,8 +1008,8 @@
           var(--primary-700) 100%
         );
         color: white;
-        width: 320px;
-        height: 240px;
+        width: 270px; /* Changed card size */
+        height: 200px; /* Changed card size */
         z-index: 5;
         overflow: visible;
       }
@@ -1137,7 +1162,6 @@
       /* Team section */
       .team-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: var(--space-xl);
         max-width: 1280px;
         margin: 0 auto;
@@ -1311,66 +1335,6 @@
 
       /* Responsive Design */
       @media (max-width: 768px) {
-        .team-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .team-card {
-          height: 360px;
-        }
-
-        .team-meta {
-          bottom: var(--space-md);
-          left: var(--space-md);
-        }
-
-        .team-card:hover .team-meta {
-          top: var(--space-md);
-          bottom: auto;
-          left: var(--space-md);
-        }
-
-        .team-description {
-          max-width: 100%;
-        }
-      }
-
-      /* Animations */
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes fadeInRight {
-        from {
-          opacity: 0;
-          transform: translateX(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      .animate-on-scroll {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.6s ease-out;
-      }
-
-      .animate-on-scroll.animated {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
         .container {
           padding: 0 var(--space-md);
         }
@@ -1394,11 +1358,35 @@
         }
 
         .team-grid {
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(2, 1fr);
         }
 
         .vision-list {
           padding-left: var(--space-md);
+        }
+
+        .vision-content {
+          grid-template-columns: 1fr;
+        }
+
+        .vision-images {
+          order: -1;
+        }
+
+        .vision-image.foreground-image {
+          top: 10px;
+          right: 15%;
+          width: 80%;
+        }
+      }
+
+      @media (min-width: 769px) {
+        .vision-content {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .vision-images {
+          order: 0;
         }
       }
 
@@ -1411,31 +1399,116 @@
         .team-card {
           min-height: 360px;
         }
+
+        .vision-image.foreground-image {
+          width: 90%;
+          right: 5%;
+        }
+      }
+
+      @media (min-width: 1261px) {
+        .benefits-container {
+          grid-template-columns: 1fr 1.5fr;
+        }
+
+        .benefits-header {
+          text-align: left;
+        }
+
+        .benefit-card {
+          width: 300px;
+          height: 220px;
+        }
+
+        .benefit-card--prominent {
+          width: 320px;
+          height: 240px;
+        }
+      }
+
+      @media (max-width: 1260px) and (min-width: 961px) {
+        .benefits-container {
+          grid-template-columns: 1fr 1.5fr;
+        }
+
+        .benefits-header {
+          text-align: left;
+        }
+
+        .benefit-card {
+          width: 250px; /* Changed card size */
+          height: 180px; /* Changed card size */
+        }
+
+        .benefit-card--prominent {
+          width: 270px; /* Changed card size */
+          height: 200px; /* Changed card size */
+        }
+      }
+
+      @media (max-width: 960px) {
+        .benefits-container {
+          grid-template-columns: 1fr;
+        }
+
+        .benefits-header {
+          text-align: center;
+        }
+
+        .benefits-header h2::after {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        .benefits-grid {
+          min-height: auto;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: var(--space-xl);
+        }
+
+        .benefit-card {
+          position: static;
+          width: 250px; /* Changed card size */
+          height: 180px; /* Changed card size */
+          margin: 0 auto;
+        }
+
+        .benefit-card--prominent {
+          width: 270px; /* Changed card size */
+          height: 200px; /* Changed card size */
+          order: -1;
+          margin-bottom: var(--space-xl);
+        }
+
+        .benefit-card.pos-1 {
+          order: 1;
+        }
+
+        .benefit-card.pos-2 {
+          order: 2;
+        }
+
+        .benefit-card.pos-3 {
+          order: 3;
+        }
+
+        .benefit-card.pos-4 {
+          order: 4;
+        }
+      }
+
+      @media (min-width: 1025px) {
+        .team-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
       }
     </style>
   </head>
   <body>
     <!-- Include Navbar -->
     <div id="navbar-placeholder"></div>
-
-    <!-- Hero Section -->
-    <!-- <section id="home" class="hero-small">
-      <div class="container">
-        <div class="hero-content">
-          <div class="hero-text-small">
-            <div class="hero-badge">
-              <i class="fas fa-leaf"></i>
-              <span>Sustainable Energy Solutions</span>
-            </div>
-            <h1>About Shree Balaji Biofuels</h1>
-            <p class="text-lg">
-              Discover our journey towards sustainable energy and rural
-              empowerment.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section> -->
 
     <!-- Hero Section - NEW -->
     <section id="home" class="hero-small">
@@ -1533,48 +1606,8 @@
             </div>
           </div>
         </div>
-
-        <!-- <section class="stats">
-          <div class="container">
-            <div class="stats-grid">
-              <div class="stat-card animate-on-scroll">
-                <div class="stat-number" data-target="200">0</div>
-                <div class="stat-label">KLPD Production Capacity</div>
-              </div>
-              <div class="stat-card animate-on-scroll">
-                <div class="stat-number" data-target="5000">0</div>
-                <div class="stat-label">Farmers in Network</div>
-              </div>
-              <div class="stat-card animate-on-scroll">
-                <div class="stat-number" data-target="85">0</div>
-                <div class="stat-label">% CO₂ Reduction</div>
-              </div>
-              <div class="stat-card animate-on-scroll">
-                <div class="stat-number" data-target="1200">0</div>
-                <div class="stat-label">Jobs Created</div>
-              </div>
-            </div>
-          </div>
-        </section> -->
       </div>
     </section>
-
-    <!-- Motto Section -->
-    <!-- <section class="motto section">
-      <div class="container">
-        <div class="motto-section-header animate-on-scroll">
-          <div class="section-badge">
-            <i class="fas fa-quote-left"></i>
-            <span>Our Motto</span>
-          </div>
-          <h2>“सहकार से समृद्धि” – Prosperity through Cooperation</h2>
-          <p class="text-lg">
-            A tribute to the spirit of self-reliance, sustainability, and social
-            empowerment.
-          </p>
-        </div>
-      </div>
-    </section> -->
 
     <!-- Vision Section -->
     <section id="vision" class="vision section">
@@ -1699,72 +1732,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Cooperative Model Section
-    <section id="model" class="model section">
-      <div class="container">
-        <div class="section-header animate-on-scroll">
-          <div class="section-badge">
-            <i class="fas fa-cogs"></i>
-            <span>Our Process</span>
-          </div>
-          <h2>End-to-End Cooperative Model</h2>
-          <p class="text-lg">
-            From seed to sustainable fuel - our integrated approach ensures
-            quality, transparency, and farmer prosperity at every step.
-          </p>
-        </div>
-
-        <div class="model-timeline">
-          <div class="model-step animate-on-scroll">
-            <div class="model-step-content">
-              <h3>Agricultural Input Support</h3>
-              <p>
-                Provide farmers with premium seeds, fertilizers, and pesticides
-                through our cooperative network. Our agricultural experts ensure
-                optimal crop yields using sustainable farming practices and
-                modern techniques.
-              </p>
-            </div>
-          </div>
-
-          <div class="model-step animate-on-scroll">
-            <div class="model-step-content">
-              <h3>Transparent Procurement</h3>
-              <p>
-                Direct procurement from farmers at fair market prices with
-                complete transparency. Our digital tracking system eliminates
-                middlemen and ensures farmers receive maximum value for their
-                produce.
-              </p>
-            </div>
-          </div>
-
-          <div class="model-step animate-on-scroll">
-            <div class="model-step-content">
-              <h3>Expert Management</h3>
-              <p>
-                Factory operations managed by experienced ex-servicemen bringing
-                discipline, integrity, and operational excellence. Our team
-                ensures consistent quality and efficient production processes.
-              </p>
-            </div>
-          </div>
-
-          <div class="model-step animate-on-scroll">
-            <div class="model-step-content">
-              <h3>Green Fuel Production</h3>
-              <p>
-                Advanced grain-to-ethanol conversion using cutting-edge
-                technology. Our 200 KLPD facility produces high-quality ethanol
-                that exceeds industry standards while minimizing environmental
-                impact.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
 
     <!-- Team Section -->
     <section id="team" class="team section">

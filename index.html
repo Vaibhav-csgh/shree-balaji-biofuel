@@ -14,8 +14,38 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
     <style>
-      /* Modern CSS Reset & Variables */
+      /* Reset and Global Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 5rem;
+      }
+
+      body {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--neutral-800);
+        background-color: white;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      /* Variables */
       :root {
         /* Colors - Professional Green Palette */
         --primary-50: #f0fdf4;
@@ -76,8 +106,7 @@
 
         /* Shadows */
         --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1),
-          0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --shadow-md: 0 4px 20px 7px rgb(0 0 0 / 0.05);
         --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
           0 4px 6px -4px rgb(0 0 0 / 0.1);
         --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
@@ -104,6 +133,11 @@
           var(--secondary-500) 0%,
           var(--secondary-700) 100%
         );
+        --gradient-testimonial: linear-gradient(
+          135deg,
+          var(--primary-50) 0%,
+          var(--primary-100) 70%
+        );
 
         /* Border Radius */
         --radius-sm: 0.5rem;
@@ -116,31 +150,6 @@
         --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
         --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
         --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 5rem;
-      }
-
-      body {
-        font-family: var(--font-body);
-        font-size: 1rem;
-        line-height: 1.6;
-        color: var(--neutral-800);
-        background-color: white;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-
-      a {
-        text-decoration: none;
       }
 
       /* Typography */
@@ -194,7 +203,7 @@
         text-align: center;
       }
 
-      /* Container & Layout */
+      /* Layout and Containers */
       .container {
         max-width: 1280px;
         margin: 0 auto;
@@ -606,7 +615,7 @@
         transform: translateX(var(--space-sm));
       }
 
-      /* Benefits Section */
+      /* Benefits/Impact Section */
       .benefits {
         background: var(--primary-50);
         font-family: var(--font-montserrat);
@@ -614,19 +623,21 @@
 
       .benefits-grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(300px, 1fr));
+        grid-template-columns: repeat(2, minmax(250px, 1fr));
         gap: var(--space-xl);
+        margin-top: var(--space-2xl);
       }
 
       .benefit-card {
         background: white;
-        padding: var(--space-xl);
+        padding: var(--space-md);
         border-radius: var(--radius-md);
         box-shadow: var(--shadow-sm);
         display: flex;
-        gap: var(--space-lg);
+        gap: var(--space-md);
         transition: all var(--transition-normal);
         border: 1px solid var(--primary-100);
+        align-items: center;
       }
 
       .benefit-card:hover {
@@ -636,63 +647,263 @@
 
       .benefit-icon {
         flex-shrink: 0;
-        width: 56px;
-        height: 56px;
+        width: 40px;
+        height: 40px;
         background: var(--gradient-primary);
         border-radius: var(--radius-sm);
         display: flex;
         align-items: center;
         justify-content: center;
         color: white;
-        font-size: 1.25rem;
+        font-size: 1rem;
       }
 
       .benefit-content h3 {
-        margin-bottom: var(--space-sm);
+        margin-bottom: var(--space-xs);
+        font-size: 1.1rem;
       }
 
       .benefit-content p {
         margin-bottom: 0;
-        font-size: 1rem;
+        font-size: 0.9rem;
       }
 
-      /* CTA Section */
-      .cta {
-        background: url("https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=2070")
-          center/cover;
-        color: white;
-        text-align: center;
+      /* Team Section */
+      .team {
+        background: white;
         font-family: var(--font-montserrat);
       }
 
-      .cta::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgb(0, 0, 0, 0.3);
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-xl);
+        margin-top: var(--space-2xl);
       }
 
-      .cta h2 {
-        color: white;
-        margin-bottom: var(--space-lg);
+      .team-card {
+        background: var(--primary-50);
+        padding: var(--space-md);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+        text-align: center;
+        transition: all var(--transition-normal);
+        border: 1px solid var(--primary-100);
       }
 
-      .cta p {
-        color: rgba(255, 255, 255, 0.9);
-        font-size: 1.25rem;
-        margin-bottom: var(--space-xl);
+      .team-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-4px);
       }
 
-      .cta .btn-secondary {
+      .team-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: var(--radius-md);
+        margin-bottom: var(--space-sm);
+      }
+
+      .team-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: var(--space-xs);
+      }
+
+      .team-card p {
+        font-size: 0.9rem;
+        color: var(--neutral-600);
+      }
+
+      /* Testimonials Section */
+      .testimonials {
         background: white;
-        color: var(--secondary-600);
-        border: none;
-        box-shadow: var(--shadow-md);
+        padding: var(--space-5xl) 0;
       }
 
-      .cta .btn-secondary:hover {
-        background: var(--secondary-50);
-        transform: translateY(-2px);
+      .responsive-container-block.bg {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        max-width: 1200px;
+        padding: var(--space-3xl) 0;
+      }
+
+      .section-header.testimonials-header {
+        text-align: center;
+        margin-bottom: var(--space-4xl);
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .text-blk.title {
+        font-size: 36px;
+        line-height: 42px;
+        font-weight: 700;
+        color: var(--primary-500);
+        margin: var(--space-2xl) 0 var(--space-sm) 0;
+      }
+
+      .text-blk.heading {
+        font-size: 20px;
+        line-height: 34.1px;
+        text-align: center;
+        color: var(--neutral-600);
+        font-weight: 700;
+        margin: 0 var(--space-sm) var(--space-xs) var(--space-sm);
+        padding: 0 var(--space-sm);
+      }
+
+      .text-blk.desc {
+        max-width: 850px;
+        font-size: 18px;
+        line-height: 28.1px;
+        color: var(--neutral-500);
+        text-align: center;
+        margin: 0 0 var(--space-2xl) 0;
+        padding: 0 var(--space-sm);
+      }
+
+      .swiper-container.mySwiper {
+        width: 100%;
+        max-width: 1200px;
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        position: relative;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        margin: var(--space-xl) 0 0 0;
+        padding: 0 var(--space-md);
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .swiper-slide-active {
+        opacity: 1 !important;
+      }
+
+      .responsive-container-block.content {
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: var(--shadow-md);
+        position: relative;
+        margin: var(--space-2xl) var(--space-sm) var(--space-3xl)
+          var(--space-sm);
+        border-radius: var(--radius-2xl);
+        border: 2px solid var(--primary-500);
+        padding: var(--space-md) var(--space-lg) var(--space-md)
+          var(--space-2xl);
+        background-color: white;
+        width: 100%;
+        max-width: 600px;
+      }
+
+      .text-blk.name {
+        font-size: 20px;
+        line-height: 27.28px;
+        font-weight: 900;
+        color: var(--neutral-700);
+        text-align: left;
+        margin: var(--space-2xl) 0 0 var(--space-sm);
+        padding: 0 var(--space-xs);
+      }
+
+      .text-blk.desig {
+        font-size: 16px;
+        line-height: 21.82px;
+        color: var(--neutral-600);
+        text-align: left;
+        margin: var(--space-xs) 0 0 var(--space-sm);
+        padding: 0 var(--space-xs);
+      }
+
+      .text-blk.info {
+        font-size: 19px;
+        line-height: 30px;
+        text-align: left;
+        color: var(--neutral-500);
+        margin: var(--space-sm) 0 var(--space-lg) 0;
+        padding: 0 var(--space-xs);
+      }
+
+      .text-blk.quotes {
+        position: absolute;
+        font-size: 288px;
+        line-height: 392.83px;
+        top: -140px;
+        font-weight: 900;
+        color: var(--neutral-400);
+        right: var(--space-sm);
+      }
+
+      .profile-image {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: var(--space-lg);
+        left: -50px;
+        z-index: 2;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .swiper-pagination {
+        position: relative;
+        margin-top: var(--space-lg);
+      }
+
+      .swiper-pagination .swiper-pagination-bullet {
+        width: 28px;
+        height: 4px;
+        opacity: 0.1;
+        border-radius: 0;
+      }
+
+      .swiper-pagination .swiper-pagination-bullet-active {
+        background-color: var(--primary-500);
+        opacity: 1;
+      }
+
+      .nav-chevron {
+        position: absolute;
+        top: 40%;
+        background: var(--primary-100);
+        color: var(--primary-700);
+        border: 2px solid var(--primary-200);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all var(--transition-normal);
+        z-index: 20;
+      }
+
+      .nav-chevron.prev {
+        left: var(--space-lg);
+      }
+
+      .nav-chevron.next {
+        right: var(--space-lg);
+      }
+
+      .nav-chevron:hover {
+        background: var(--primary-50);
+        border-color: var(--primary-300);
+        color: var(--primary-800);
+        transform: scale(1.1);
       }
 
       /* Animations */
@@ -730,15 +941,36 @@
       }
 
       /* Responsive Design */
-      @media (max-width: 768px) {
-        .container {
-          padding: 0 var(--space-md);
+      @media (max-width: 1024px) {
+        .swiper-slide {
+          opacity: 0.5;
         }
 
-        .section {
-          padding: var(--space-3xl) 0;
+        .text-blk.heading {
+          font-size: 18px;
         }
 
+        .text-blk.title {
+          font-size: 32px;
+          line-height: 40px;
+        }
+
+        .text-blk.desc {
+          font-size: 17px;
+          line-height: 25.1px;
+          max-width: 600px;
+        }
+
+        .text-blk.info {
+          font-size: 18px;
+          line-height: 28px;
+        }
+
+        .text-blk.name {
+          font-size: 18px;
+        }
+
+        /* Hero Section */
         .hero-content {
           grid-template-columns: 1fr;
           gap: var(--space-2xl);
@@ -750,6 +982,17 @@
           align-items: center;
         }
 
+        .hero-image-card img {
+          height: 250px;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: var(--space-lg);
+        }
+
+        /* About Section */
         .about-content {
           grid-template-columns: 1fr;
           gap: var(--space-2xl);
@@ -759,16 +1002,16 @@
           height: 300px;
         }
 
-        .stats-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: var(--space-lg);
-        }
-
-        .vision-grid,
-        .benefits-grid {
+        /* Vision Section */
+        .vision-grid {
           grid-template-columns: 1fr;
         }
 
+        .vision-card {
+          margin: 0 auto;
+        }
+
+        /* Model Section */
         .model-timeline::before {
           left: 16px;
         }
@@ -783,9 +1026,165 @@
           font-size: 1rem;
           left: 0;
         }
+
+        /* Benefits/Impact Section */
+        .benefits-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .benefit-card {
+          margin: 0 auto;
+        }
+
+        /* Team Section */
+        .team-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .team-card img {
+          height: 120px;
+        }
+
+        /* Testimonials Section */
+        .swiper-container.mySwiper {
+          min-width: 95%;
+        }
+
+        .swiper-slide {
+          min-width: 100%;
+          width: 50%;
+        }
+
+        .swiper-wrapper {
+          min-width: 100%;
+        }
+
+        .nav-chevron.prev {
+          left: var(--space-sm);
+        }
+
+        .nav-chevron.next {
+          right: var(--space-sm);
+        }
       }
 
-      @media (max-width: 480px) {
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 var(--space-md);
+        }
+
+        .section {
+          padding: var(--space-3xl) 0;
+        }
+
+        /* Hero Section */
+        .hero-content {
+          grid-template-columns: 1fr;
+          gap: var(--space-2xl);
+          text-align: center;
+        }
+
+        .hero-actions {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .hero-image-card img {
+          height: 200px;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+          grid-template-columns: 1fr;
+          gap: var(--space-md);
+        }
+
+        /* About Section */
+        .about-content {
+          grid-template-columns: 1fr;
+          gap: var(--space-2xl);
+        }
+
+        .about-image-grid {
+          grid-template-columns: 1fr;
+          height: 250px;
+        }
+
+        .about-image-item:first-child {
+          transform: none;
+        }
+
+        /* Vision Section */
+        .vision-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .vision-card {
+          width: 80%;
+          margin: 0 auto var(--space-lg);
+        }
+
+        /* Model Section */
+        .model-timeline::before {
+          left: 16px;
+        }
+
+        .model-step {
+          padding-left: var(--space-2xl);
+        }
+
+        .model-step::before {
+          width: 32px;
+          height: 32px;
+          font-size: 1rem;
+          left: 0;
+        }
+
+        /* Benefits/Impact Section */
+        .benefits-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .benefit-card {
+          width: 90%;
+          margin: 0 auto var(--space-lg);
+        }
+
+        /* Team Section */
+        .team-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .team-card {
+          width: 90%;
+          margin: 0 auto var(--space-lg);
+        }
+
+        /* Testimonials Section */
+        .swiper-container.mySwiper {
+          min-width: 90%;
+        }
+
+        .swiper-slide {
+          width: 70%;
+        }
+
+        .nav-chevron {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .container {
+          padding: 0 var(--space-sm);
+        }
+
+        .section {
+          padding: var(--space-2xl) 0;
+        }
+
+        /* Hero Section */
         .hero-actions {
           flex-direction: column;
           gap: var(--space-md);
@@ -796,17 +1195,113 @@
           justify-content: center;
         }
 
+        .hero-image-card img {
+          height: 150px;
+        }
+
+        /* Stats Section */
         .stats-grid {
           grid-template-columns: 1fr;
         }
 
+        .stat-card {
+          padding: var(--space-md);
+        }
+
+        /* About Section */
         .about-image-grid {
-          grid-template-columns: 1fr;
           height: 200px;
         }
 
-        .about-image-item:first-child {
-          transform: none;
+        .about-image-item {
+          height: 100%;
+        }
+
+        /* Vision Section */
+        .vision-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .vision-card {
+          width: 100%;
+          margin: 0 0 var(--space-md);
+        }
+
+        /* Model Section */
+        .model-step-content {
+          padding: var(--space-md);
+        }
+
+        /* Benefits/Impact Section */
+        .benefits-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .benefit-card {
+          flex-direction: column;
+          text-align: center;
+          width: 100%;
+          margin: 0 0 var(--space-md);
+        }
+
+        .benefit-icon {
+          margin: 0 auto;
+        }
+
+        .benefit-content {
+          text-align: center;
+        }
+
+        /* Testimonials Section */
+        .responsive-container-block.content {
+          padding: var(--space-sm);
+          width: 100%;
+          margin: var(--space-xl) 0 var(--space-2xl) 0;
+        }
+
+        .profile-image {
+          width: 75px;
+          height: 75px;
+          left: -40px;
+        }
+
+        .text-blk.info {
+          margin: var(--space-sm) 0 var(--space-md) -25px;
+          font-size: 16px;
+          line-height: 24px;
+        }
+
+        .text-blk.name {
+          margin: var(--space-xl) 0 0 var(--space-sm);
+        }
+
+        .text-blk.desig {
+          margin: var(--space-xs) 0 0 var(--space-sm);
+        }
+
+        .text-blk.desc {
+          font-size: 16px;
+          line-height: 24px;
+          margin: 0 0 var(--space-lg) 0;
+        }
+
+        .text-blk.heading {
+          font-size: 18px;
+          line-height: 28px;
+        }
+
+        .text-blk.title {
+          font-size: 26px;
+          line-height: 36px;
+        }
+
+        .nav-chevron {
+          width: 30px;
+          height: 30px;
+        }
+
+        .swiper-slide {
+          width: 90%;
         }
       }
     </style>
@@ -1059,7 +1554,7 @@
       </div>
     </section>
 
-    <!-- Benefits Section -->
+    <!-- Benefits/Impact Section -->
     <section id="benefits" class="benefits section">
       <div class="container">
         <div class="section-header animate-on-scroll">
@@ -1073,7 +1568,6 @@
             economic, and social dimensions.
           </p>
         </div>
-
         <div class="benefits-grid">
           <div class="benefit-card animate-on-scroll">
             <div class="benefit-icon">
@@ -1088,7 +1582,6 @@
               </p>
             </div>
           </div>
-
           <div class="benefit-card animate-on-scroll">
             <div class="benefit-icon">
               <i class="fas fa-seedling"></i>
@@ -1102,7 +1595,6 @@
               </p>
             </div>
           </div>
-
           <div class="benefit-card animate-on-scroll">
             <div class="benefit-icon">
               <i class="fas fa-coins"></i>
@@ -1116,7 +1608,6 @@
               </p>
             </div>
           </div>
-
           <div class="benefit-card animate-on-scroll">
             <div class="benefit-icon">
               <i class="fas fa-industry"></i>
@@ -1134,8 +1625,118 @@
       </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+      <div class="container">
+        <div class="section-header testimonials-header animate-on-scroll">
+          <div class="section-badge">
+            <i class="fas fa-quote-left"></i>
+            <span>Our Testimonials</span>
+          </div>
+          <h2>Real Stories from Our Cooperative Partners</h2>
+          <p class="text-lg">
+            From seed to sustainable fuel - hear how our integrated approach
+            ensures quality, transparency, and farmer prosperity at every step.
+          </p>
+        </div>
+        <div class="swiper-container mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="responsive-container-block content">
+                <p class="text-blk quotes">“</p>
+                <p class="text-blk name">Rajesh Kumar</p>
+                <img
+                  class="image-block profile-image"
+                  src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250&d=identicon"
+                  alt="Avatar 1"
+                />
+                <p class="text-blk desig">Farmer, Uttar Pradesh</p>
+                <p class="text-blk info">
+                  “Joining Shree Balaji Biofuels has transformed my livelihood.
+                  The fair pricing and support for quality seeds have doubled my
+                  income this year.”
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="responsive-container-block content">
+                <p class="text-blk quotes">“</p>
+                <p class="text-blk name">Anita Sharma</p>
+                <img
+                  class="image-block profile-image"
+                  src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=251&d=identicon"
+                  alt="Avatar 2"
+                />
+                <p class="text-blk desig">Farmer, Maharashtra</p>
+                <p class="text-blk info">
+                  “The cooperative model ensures we get timely payments and
+                  guidance, making farming more sustainable and profitable.”
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="responsive-container-block content">
+                <p class="text-blk quotes">“</p>
+                <p class="text-blk name">Vikram Singh</p>
+                <img
+                  class="image-block profile-image"
+                  src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=252&d=identicon"
+                  alt="Avatar 3"
+                />
+                <p class="text-blk desig">Farmer, Punjab</p>
+                <p class="text-blk info">
+                  “With Shree Balaji’s support, I’ve seen a significant
+                  reduction in my costs and an increase in crop yield, thanks to
+                  their expertise.”
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="responsive-container-block content">
+                <p class="text-blk quotes">“</p>
+                <p class="text-blk name">Priya Patel</p>
+                <img
+                  class="image-block profile-image"
+                  src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=254&d=identicon"
+                  alt="Avatar 5"
+                />
+                <p class="text-blk desig">Farmer, Gujarat</p>
+                <p class="text-blk info">
+                  “The ex-servicemen team’s dedication has made a huge
+                  difference in managing our fields efficiently.”
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="responsive-container-block content">
+                <p class="text-blk quotes">“</p>
+                <p class="text-blk name">Suresh Reddy</p>
+                <img
+                  class="image-block profile-image"
+                  src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=254&d=identicon"
+                  alt="Avatar 5"
+                />
+                <p class="text-blk desig">Farmer, Andhra Pradesh</p>
+                <p class="text-blk info">
+                  “I’m proud to contribute to India’s green energy goals while
+                  seeing my family prosper through this initiative.”
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination container-block"></div>
+          <button class="nav-chevron prev" id="prev-btn">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="nav-chevron next" id="next-btn">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA Section -->
-    <section class="cta section">
+    <!-- <section class="cta section">
       <div class="container">
         <div class="section-header partner animate-on-scroll">
           <h2>Join the Green Energy Revolution</h2>
@@ -1149,11 +1750,12 @@
           </a>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Include Footer -->
     <div id="footer-placeholder"></div>
 
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
       // Load navbar and footer
       fetch("navbar.html")
@@ -1279,6 +1881,51 @@
           imageObserver.observe(img);
         });
       }
+
+      // Testimonials Swiper with auto cycling, infinite loop, and timer reset
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        centeredSlides: true,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: "#next-btn",
+          prevEl: "#prev-btn",
+        },
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        breakpoints: {
+          300: {
+            slidesPerView: 1,
+          },
+          501: {
+            slidesPerView: 1,
+          },
+          769: {
+            slidesPerView: 1,
+          },
+          1025: {
+            slidesPerView: 1,
+          },
+        },
+      });
+
+      // Reset autoplay timer on manual navigation
+      const prevBtn = document.getElementById("prev-btn");
+      const nextBtn = document.getElementById("next-btn");
+
+      [prevBtn, nextBtn].forEach((btn) => {
+        btn.addEventListener("click", () => {
+          swiper.autoplay.stop();
+          swiper.autoplay.start();
+        });
+      });
     </script>
   </body>
 </html>

@@ -942,6 +942,10 @@
 
       /* Responsive Design */
       @media (max-width: 1024px) {
+        .hero-text {
+          padding-top: var(--space-5xl);
+        }
+
         .swiper-slide {
           opacity: 0.5;
         }
@@ -1050,6 +1054,12 @@
         }
 
         /* Testimonials Section */
+        .responsive-container-block.content {
+          padding: var(--space-xl);
+          width: 70%;
+          margin: var(--space-xl) 0 var(--space-2xl) 0;
+        }
+
         .swiper-container.mySwiper {
           min-width: 95%;
         }
@@ -1110,12 +1120,11 @@
         }
 
         .about-image-grid {
-          grid-template-columns: 1fr;
           height: 250px;
         }
 
         .about-image-item:first-child {
-          transform: none;
+          transform: translateY(var(--space-xl));
         }
 
         /* Vision Section */
@@ -1181,6 +1190,12 @@
           width: 40px;
           height: 40px;
         }
+
+        .responsive-container-block.content {
+          padding: var(--space-xl);
+          width: 70%;
+          margin: var(--space-xl) 0 var(--space-2xl) 0;
+        }
       }
 
       @media (max-width: 500px) {
@@ -1225,6 +1240,10 @@
           height: 100%;
         }
 
+        .about-image-item:first-child {
+          transform: translateY(var(--space-xl));
+        }
+
         /* Vision Section */
         .vision-grid {
           grid-template-columns: 1fr;
@@ -1266,8 +1285,8 @@
 
         /* Testimonials Section */
         .responsive-container-block.content {
-          padding: var(--space-sm);
-          width: 100%;
+          padding: var(--space-xl);
+          width: 70%;
           margin: var(--space-xl) 0 var(--space-2xl) 0;
         }
 

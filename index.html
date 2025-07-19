@@ -210,6 +210,12 @@
         padding: 0 var(--space-lg);
       }
 
+      .hero-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 var(--space-lg);
+      }
+
       .section {
         padding: var(--space-2xl) 0;
         position: relative;
@@ -432,8 +438,12 @@
         align-items: center;
       }
 
-      .about-text {
-        max-width: none;
+      .about-text h3 {
+        margin-bottom: var(--space-xs);
+      }
+
+      .about-text p {
+        margin-bottom: var(--space-2xl);
       }
 
       .about-image {
@@ -999,11 +1009,26 @@
         /* About Section */
         .about-content {
           grid-template-columns: 1fr;
-          gap: var(--space-2xl);
+          gap: var(--space-xl);
         }
 
         .about-image-grid {
           height: 300px;
+        }
+
+        .about-text {
+          align-items: center;
+        }
+
+        .about-text h3 {
+          margin-bottom: var(--space-xs);
+          text-align: center;
+        }
+
+        .about-text p {
+          text-align: justify;
+          margin: auto;
+          margin-bottom: var(--space-2xl);
         }
 
         /* Vision Section */
@@ -1087,6 +1112,10 @@
           padding: 0 var(--space-md);
         }
 
+        .hero-container {
+          padding: 0 var(--space-md);
+        }
+
         .section {
           padding: var(--space-3xl) 0;
         }
@@ -1116,7 +1145,7 @@
         /* About Section */
         .about-content {
           grid-template-columns: 1fr;
-          gap: var(--space-2xl);
+          gap: var(--space-md);
         }
 
         .about-image-grid {
@@ -1203,19 +1232,33 @@
           padding: 0 var(--space-sm);
         }
 
+        .hero-container {
+          padding: 0 var(--space-sm);
+          padding-bottom: var(--space-xl);
+        }
+
         .section {
           padding: var(--space-2xl) 0;
         }
 
         /* Hero Section */
         .hero-actions {
-          flex-direction: column;
+          flex-direction: row;
+          margin: auto;
           gap: var(--space-md);
+          justify-content: center;
+          align-items: stretch;
         }
 
         .btn {
-          width: 100%;
+          width: 40%;
+          min-height: 3.2rem;
+          display: flex;
+          text-align: center;
+          align-items: center;
           justify-content: center;
+          font-size: 0.7rem;
+          padding: 0.5rem 1.2rem;
         }
 
         .hero-image-card img {
@@ -1232,6 +1275,11 @@
         }
 
         /* About Section */
+        .about-content {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+
         .about-image-grid {
           height: 200px;
         }
@@ -1247,20 +1295,37 @@
         /* Vision Section */
         .vision-grid {
           grid-template-columns: 1fr;
+          justify-items: center;
+          align-items: stretch;
         }
 
         .vision-card {
-          width: 100%;
+          width: 80%;
           margin: 0 0 var(--space-md);
+          padding: var(--space-xl);
         }
 
         .vision-card h3 {
+          font-size: clamp(1.1rem, 2vw, 1.5rem);
+          min-height: auto;
+        }
+
+        .vision-card p {
+          font-size: 0.8rem;
           min-height: auto;
         }
 
         /* Model Section */
         .model-step-content {
           padding: var(--space-md);
+        }
+
+        .model-step-content h3 {
+          font-size: clamp(1.1rem, 2vw, 1.5rem);
+        }
+
+        .model-step-content p {
+          font-size: 0.8rem;
         }
 
         /* Benefits/Impact Section */
@@ -1343,7 +1408,7 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-      <div class="container">
+      <div class="hero-container">
         <div class="hero-content">
           <div class="hero-text">
             <div class="hero-badge">

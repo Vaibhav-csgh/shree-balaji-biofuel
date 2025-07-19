@@ -602,10 +602,95 @@
     <script>
       // Load navbar and footer from external files
       fetch("navbar.html")
-        .then((response) => (response.ok ? response.text() : ""))
+        .then((response) => response.text())
         .then((data) => {
-          if (data)
-            document.getElementById("navbar-placeholder").innerHTML = data;
+          document.getElementById("navbar-placeholder").innerHTML = data;
+
+          // Add .current class to the nav link matching the current page
+          const currentPath =
+            window.location.pathname.split("/").pop() || "index.html";
+          document.querySelectorAll(".nav-links a").forEach((link) => {
+            if (link.getAttribute("href") === currentPath) {
+              link.classList.add("current");
+            }
+          });
+
+          // Mobile menu toggle
+          const menuBtn = document.querySelector(".mobile-menu-btn");
+          if (menuBtn) {
+            menuBtn.addEventListener("click", (e) => {
+              e.stopPropagation();
+              const navLinks = document.querySelector(".nav-links");
+              const overlay = document.querySelector(".mobile-menu-overlay");
+              const barsIcon = menuBtn.querySelector(".fa-bars");
+              const timesIcon = menuBtn.querySelector(".fa-times");
+
+              if (navLinks && overlay && barsIcon && timesIcon) {
+                navLinks.classList.toggle("active");
+                overlay.classList.toggle("active");
+                barsIcon.style.display = navLinks.classList.contains("active")
+                  ? "none"
+                  : "block";
+                timesIcon.style.display = navLinks.classList.contains("active")
+                  ? "block"
+                  : "none";
+              }
+            });
+          }
+
+          // Close menu when clicking overlay
+          const overlay = document.querySelector(".mobile-menu-overlay");
+          if (overlay) {
+            overlay.addEventListener("click", () => {
+              const navLinks = document.querySelector(".nav-links");
+              const menuBtn = document.querySelector(".mobile-menu-btn");
+              const barsIcon = menuBtn?.querySelector(".fa-bars");
+              const timesIcon = menuBtn?.querySelector(".fa-times");
+
+              if (navLinks && barsIcon && timesIcon) {
+                navLinks.classList.remove("active");
+                overlay.classList.remove("active");
+                barsIcon.style.display = "block";
+                timesIcon.style.display = "none";
+              }
+            });
+          }
+
+          // Close menu when clicking a nav link
+          document.querySelectorAll(".nav-links a").forEach((link) => {
+            link.addEventListener("click", () => {
+              const navLinks = document.querySelector(".nav-links");
+              const menuBtn = document.querySelector(".mobile-menu-btn");
+              const overlay = document.querySelector(".mobile-menu-overlay");
+              const barsIcon = menuBtn?.querySelector(".fa-bars");
+              const timesIcon = menuBtn?.querySelector(".fa-times");
+
+              if (navLinks && overlay && barsIcon && timesIcon) {
+                navLinks.classList.remove("active");
+                overlay.classList.remove("active");
+                barsIcon.style.display = "block";
+                timesIcon.style.display = "none";
+              }
+            });
+          });
+
+          // Close menu on resize to desktop
+          window.addEventListener("resize", () => {
+            if (window.innerWidth > 960) {
+              const navLinks = document.querySelector(".nav-links");
+              const menuBtn = document.querySelector(".mobile-menu-btn");
+              const overlay = document.querySelector(".mobile-menu-overlay");
+              const barsIcon = menuBtn?.querySelector(".fa-bars");
+              const timesIcon = menuBtn?.querySelector(".fa-times");
+
+              if (navLinks && overlay && barsIcon && timesIcon) {
+                navLinks.classList.remove("active");
+                overlay.classList.remove("active");
+                barsIcon.style.display = "block";
+                timesIcon.style.display = "none";
+              }
+            }
+          });
         });
 
       fetch("footer.html")

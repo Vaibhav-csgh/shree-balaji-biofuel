@@ -210,6 +210,29 @@
         padding: 0 var(--space-lg);
       }
 
+      .hero-row {
+        width: 100%;
+        padding: var(--space-2xl) 0;
+      }
+
+      .hero-stat {
+        width: 100%;
+      }
+
+      .hero-content {
+        display: flex;
+        gap: var(--space-4xl);
+        align-items: center;
+      }
+
+      .hero-text {
+        flex: 1;
+      }
+
+      .hero-image {
+        flex: 1;
+      }
+
       .hero-container {
         max-width: 1280px;
         margin: 0 auto;
@@ -302,25 +325,100 @@
 
       /* Hero Section */
       .hero {
-        background: var(--gradient-hero);
-        min-height: 100vh;
         display: flex;
-        align-items: center;
+        flex-direction: column;
         position: relative;
         overflow: hidden;
+        padding-top: var(--space-3xl);
+        background-color: var(--primary-50);
+        background-image: url("data:image/svg+xml,%3Csvg width='160' height='160' viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2322c55e' fill-opacity='0.04'%3E%3Cpath d='M80 40c-5 0-10-4-10-10s5-15 10-20c5 5 10 15 10 20s-5 10-10 10z'/%3E%3Cpath d='M40 60c0 5.5-4.5 10-10 10s-10-4.5-10-10c0-6.5 10-15 10-15s10 8.5 10 15z'/%3E%3Cpath d='M120 100c0 5.5-4.5 10-10 10s-10-4.5-10-10c0-6.5 10-15 10-15s10 8.5 10 15z'/%3E%3C/g%3E%3C/svg%3E");
       }
 
-      .hero::before {
-        content: "";
+      .floating-elements {
         position: absolute;
-        top: 0;
-        right: 0;
-        width: 60%;
+        width: 100%;
         height: 100%;
-        background: url("https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=2070")
-          center/cover;
-        opacity: 0.1;
-        z-index: 0;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .floating-element {
+        position: absolute;
+        font-size: 2rem;
+        color: var(--primary-300);
+        opacity: 0.3;
+        animation: float 15s infinite;
+      }
+
+      .floating-element:nth-child(1) {
+        top: 15%;
+        left: 15%;
+        animation-delay: 0s;
+      }
+
+      .floating-element:nth-child(2) {
+        top: 25%;
+        right: 10%;
+        animation-delay: -3s;
+      }
+
+      .floating-element:nth-child(3) {
+        bottom: 20%;
+        left: 10%;
+        animation-delay: -6s;
+      }
+
+      .floating-element:nth-child(4) {
+        bottom: 15%;
+        right: 15%;
+        animation-delay: -9s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        25% {
+          transform: translate(-15px, 15px) rotate(5deg);
+        }
+        50% {
+          transform: translate(15px, -15px) rotate(-5deg);
+        }
+        75% {
+          transform: translate(15px, 15px) rotate(5deg);
+        }
+      }
+
+      .hero-marquee {
+        width: 100%;
+        background: var(--primary-50);
+        padding: 0.75rem 0;
+        overflow: hidden;
+        margin: var(--space-md);
+        border-top: 1px solid var(--primary-100);
+        border-bottom: 1px solid var(--primary-100);
+      }
+
+      .hero-marquee .marquee-content {
+        display: inline-flex;
+        animation: marquee 20s linear infinite;
+        white-space: nowrap;
+      }
+
+      .hero-marquee .marquee-content span {
+        display: inline-flex;
+        align-items: center;
+        padding: 0 2rem;
+        color: var(--primary-700);
+        font-weight: 500;
+      }
+
+      .hero-marquee .marquee-content i {
+        margin-right: 0.5rem;
+        color: var(--primary-600);
       }
 
       .hero-content {
@@ -362,120 +460,167 @@
         animation: fadeInRight 1s ease-out 0.3s both;
       }
 
-      .hero-image-card {
-        background: white;
-        border-radius: var(--radius-2xl);
-        padding: var(--space-lg);
-        box-shadow: var(--shadow-xl);
-        transform: rotate(3deg);
-        transition: transform var(--transition-slow);
+      .hero-bento-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 0.75rem;
+        height: 350px;
       }
 
-      .hero-image-card:hover {
-        transform: rotate(0deg) scale(1.02);
-      }
-
-      .hero-image-card img {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
+      .bento-item {
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        box-shadow: var(--shadow-lg);
         border-radius: var(--radius-lg);
+      }
+
+      .bento-item:hover {
+        transform: scale(1.02);
+      }
+
+      .bento-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .bento-item-1 {
+        grid-row: span 2;
+        grid-column: 1;
+      }
+
+      .bento-item-2 {
+        grid-column: 2;
+      }
+
+      .bento-item-3 {
+        grid-column: 2;
+      }
+
+      .bento-item-4 {
+        display: none;
       }
 
       /* Stats Section */
       .stats {
-        background: white;
-        padding: var(--space-3xl) 0;
-        border-bottom: 1px solid var(--neutral-200);
+        position: relative;
+        overflow: hidden;
+        padding: 0;
+        margin-top: -120px;
+        border-bottom: 1px solid var(--neutral-100);
+        background: transparent;
+        z-index: 2;
       }
+
+      /* .stats::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("assets/factory.png") center/cover no-repeat;
+        filter: grayscale(100%);
+        opacity: 0.10;
+        z-index: 0;
+      } */
 
       .stats-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: var(--space-xl);
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: var(--space-lg);
+        max-width: 65vw;
+        margin: 0 auto;
       }
 
       .stat-card {
         text-align: center;
-        padding: var(--space-xl);
-        background: var(--neutral-50);
-        border-radius: var(--radius-xl);
+        padding: var(--space-md);
+        border-radius: var(--radius-lg);
         transition: all var(--transition-normal);
-      }
-
-      .stat-card:hover {
-        background: white;
-        box-shadow: var(--shadow-lg);
-        transform: translateY(-4px);
       }
 
       .stat-number {
         font-family: var(--font-display);
-        font-size: 3rem;
+        font-size: 2.5rem;
         font-weight: 700;
         background: var(--gradient-primary);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
-        margin-bottom: var(--space-sm);
+        margin-bottom: var(--space-xs);
       }
 
       .stat-label {
         color: var(--neutral-600);
         font-weight: 600;
-        font-size: 1.1rem;
+        font-size: 0.9rem;
       }
 
       /* About Section */
       .about {
-        background: white;
+        background-color: var(--neutral-50);
       }
 
-      .about-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4xl);
+      .about-throw {
+        display: flex;
         align-items: center;
+        gap: var(--space-xl);
+        margin: var(--space-2xl) 0;
       }
 
-      .about-text h3 {
-        margin-bottom: var(--space-xs);
-      }
-
-      .about-text p {
-        margin-bottom: var(--space-2xl);
+      .about-throw.reverse {
+        flex-direction: row-reverse;
       }
 
       .about-image {
+        width: 20vw;
+        height: 30vh;
         position: relative;
-      }
-
-      .about-image-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-lg);
-        height: 400px;
-      }
-
-      .about-image-item {
-        border-radius: var(--radius-xl);
         overflow: hidden;
+        border-radius: var(--radius-lg);
         box-shadow: var(--shadow-lg);
-        transition: transform var(--transition-slow);
       }
 
-      .about-image-item:hover {
+      .about-image img {
+        width: 25vw;
+        height: 30vh;
+        object-fit: cover;
+        transition: transform var(--transition-normal);
+      }
+
+      .about-image:hover img {
         transform: scale(1.05);
       }
 
-      .about-image-item:first-child {
-        transform: translateY(var(--space-xl));
+      .about-text {
+        flex: 1;
+        padding: var(--space-xl);
       }
 
-      .about-image-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+      .about-text h3 {
+        color: var(--primary-700);
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
+        margin-bottom: var(--space-md);
+        position: relative;
+        padding-bottom: var(--space-sm);
+      }
+
+      .about-text h3::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background-color: var(--primary-500);
+      }
+
+      .about-text p {
+        color: var(--neutral-700);
+        font-size: clamp(1rem, 1.2vw, 1.1rem);
+        line-height: 1.8;
+        margin-bottom: var(--space-lg);
       }
 
       /* Vision Section */
@@ -486,66 +631,72 @@
 
       .vision-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: var(--space-xl);
+        grid-auto-rows: 1fr;
+        position: relative;
       }
 
       .vision-card {
         background: white;
         padding: var(--space-2xl);
-        border-radius: var(--radius-md);
-        box-shadow: var(--shadow-sm);
-        transition: all var(--transition-normal);
-        border: 1px solid var(--primary-100);
+        border-radius: 1rem 0.5rem 1rem 0.5rem;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        border-left: 6px solid var(--primary-200);
+        border-bottom: 4px solid var(--primary-200);
         position: relative;
-        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        isolation: isolate;
+        overflow: visible;
+      }
+
+      .vision-card:hover {
+        transform: translateY(-10px) scale(1.01);
+        box-shadow: var(--shadow-lg);
       }
 
       .vision-card::before {
         content: "";
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: var(--gradient-primary);
-        opacity: 0;
-        transition: opacity var(--transition-normal);
-      }
-
-      .vision-card:hover {
-        transform: translateY(-8px);
-        box-shadow: var(--shadow-lg);
-      }
-
-      .vision-card:hover::before {
-        opacity: 0.05;
+        z-index: -1;
+        top: -10px;
+        right: -10px;
+        width: 40px;
+        height: 40px;
+        background: var(--primary-200);
+        border-radius: 50%;
+        opacity: 0.5;
+        transform: rotate(15deg);
       }
 
       .vision-icon {
         width: 56px;
         height: 56px;
         background: var(--gradient-primary);
-        border-radius: var(--radius-sm);
+        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         color: white;
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         margin-bottom: var(--space-lg);
-        transition: all var(--transition-normal);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transform: rotate(0deg);
+        transition: transform 0.3s ease;
       }
 
       .vision-card:hover .vision-icon {
-        background: var(--gradient-primary);
-        transform: scale(1.05);
+        transform: rotate(10deg) scale(1.1);
       }
 
-      .vision-card h3,
+      .vision-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+      }
+
       .vision-card p {
-        min-height: 3.5rem;
-        position: relative;
-        z-index: 1;
+        line-height: 1.6;
+        color: var(--neutral-700);
       }
 
       /* Model Section */
@@ -554,101 +705,391 @@
         font-family: var(--font-montserrat);
       }
 
-      .model-timeline {
-        max-width: 800px;
+      .model-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4xl);
+        align-items: center;
+        margin-top: var(--space-2xl);
+      }
+
+      .model-circle-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        min-height: 600px;
+      }
+
+      .model-circle {
+        width: 500px;
+        height: 500px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         margin: 0 auto;
-        position: relative;
       }
 
-      .model-timeline::before {
-        content: "";
-        position: absolute;
-        left: 32px;
-        top: 0;
-        bottom: 0;
-        width: 4px;
-        background: var(--gradient-primary);
-      }
-
-      .model-step {
-        position: relative;
-        padding-left: var(--space-4xl);
-        margin-bottom: var(--space-3xl);
-      }
-
-      .model-step:last-child {
-        margin-bottom: 0;
-      }
-
-      .model-step::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 8px;
-        width: 64px;
-        height: 64px;
-        background: var(--gradient-primary);
+      .model-center {
+        width: 180px;
+        height: 180px;
+        background: white;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: white;
-        font-size: 1.5rem;
-        font-weight: bold;
-        border: 4px solid var(--primary-50);
-        box-shadow: var(--shadow-md);
+        text-align: center;
+        font-weight: 600;
+        color: var(--primary-800);
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
 
-      .model-step:nth-child(1)::before {
-        content: "1";
-      }
-      .model-step:nth-child(2)::before {
-        content: "2";
-      }
-      .model-step:nth-child(3)::before {
-        content: "3";
-      }
-      .model-step:nth-child(4)::before {
-        content: "4";
+      .orbit {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        list-style: none;
+        padding: 0;
+        margin: 0;
       }
 
-      .model-step-content {
-        background: var(--primary-50);
-        padding: var(--space-xl);
-        border-radius: var(--radius-md);
-        border-left: 4px solid var(--primary-500);
-        transition: all var(--transition-normal);
+      .orbit::before {
+        content: "";
+        position: absolute;
+        width: 80%; /* Or whatever % you're reducing to */
+        height: 80%;
+        border: 2px dashed var(--primary-200);
+        border-radius: 50%;
+
+        /* Center the smaller circle */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
 
-      .model-step:hover .model-step-content {
+      .orbit-circle {
+        width: 120px;
+        height: 120px;
         background: white;
-        box-shadow: var(--shadow-md);
-        transform: translateX(var(--space-sm));
+        border-radius: 50%;
+        position: absolute;
+        transform-origin: center;
+        cursor: pointer;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 2px solid var(--primary-200);
+      }
+
+      /* Precise positioning for each orbit position */
+      .orbit-circle[data-position="top"] {
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .orbit-circle[data-position="right"] {
+        top: 50%;
+        right: 0;
+        transform: translate(0, -50%);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .orbit-circle[data-position="bottom"] {
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .orbit-circle[data-position="left"] {
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .orbit-circle:hover {
+        transform: scale(1.1);
+      }
+
+      .orbit-circle.active {
+        background: var(--primary-50);
+        border: 2px solid var(--primary-500);
+        transform: scale(1.1);
+        z-index: 2;
+      }
+
+      .orbit-content {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: var(--primary-800);
+        font-size: 0.75rem;
+      }
+
+      .orbit-content i {
+        font-size: 1.25rem;
+        color: var(--primary-500);
+        margin-bottom: 4px;
+      }
+
+      /* Fixed positions for each circle */
+      .orbit-circle[data-position="top"] {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .orbit-circle[data-position="right"] {
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .orbit-circle[data-position="bottom"] {
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .orbit-circle[data-position="left"] {
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        transition: all 0.3s ease-in-out;
+      }
+
+      /* Mobile responsive styles for orbit */
+      @media (max-width: 600px) {
+        .orbit-circle[data-position="top"] {
+          transform: translate(-50%, -140px);
+        }
+
+        .orbit-circle[data-position="right"] {
+          transform: translate(90px, -50%);
+        }
+
+        .orbit-circle[data-position="bottom"] {
+          transform: translate(-50%, 60px);
+        }
+
+        .orbit-circle[data-position="left"] {
+          transform: translate(-140px, -50%);
+        }
+      }
+
+      .model-details {
+        position: relative;
+        padding-left: var(--space-2xl);
+      }
+
+      .model-card {
+        background: white;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-lg);
+        padding: var(--space-xl);
+        min-height: 300px;
+        color: var(--neutral-800);
+        border: 2px solid var(--neutral-50);
+      }
+
+      /* Remove model controls */
+      .model-controls {
+        display: none;
+      }
+
+      .model-card-content {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      .model-card-content.active {
+        display: block;
+        opacity: 1;
+      }
+
+      .model-card-content h3 {
+        color: var(--primary-800);
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-lg);
+      }
+
+      .model-card-content h3 i {
+        color: var(--primary-500);
+      }
+
+      .model-card-content ul {
+        list-style: none;
+        padding: 0;
+        margin-top: var(--space-lg);
+      }
+
+      .model-card-content ul li {
+        padding-left: var(--space-lg);
+        position: relative;
+        margin-bottom: var(--space-sm);
+      }
+
+      .model-card-content ul li:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--primary-500);
+        transform: translateY(-50%);
+      }
+
+      /* Remove pagination controls */
+
+      @media (max-width: 1024px) {
+        .model-content {
+          grid-template-columns: 1fr;
+          gap: var(--space-2xl);
+        }
+
+        .model-circle-wrapper {
+          margin-bottom: var(--space-xl);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .model-circle {
+          width: 360px;
+          height: 360px;
+        }
+
+        .orbit-circle {
+          width: 90px;
+          height: 90px;
+        }
+
+        .model-center {
+          width: 140px;
+          height: 140px;
+        }
+
+        .orbit-content {
+          font-size: 0.65rem;
+        }
+
+        @keyframes orbit1 {
+          from {
+            transform: rotate(0deg) translateX(140px) translateY(-50%)
+              rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg) translateX(140px) translateY(-50%)
+              rotate(-360deg);
+          }
+        }
+
+        @keyframes orbit2 {
+          from {
+            transform: rotate(90deg) translateX(120px) translateY(-50%)
+              rotate(-90deg);
+          }
+          to {
+            transform: rotate(450deg) translateX(120px) translateY(-50%)
+              rotate(-450deg);
+          }
+        }
+
+        @keyframes orbit3 {
+          from {
+            transform: rotate(180deg) translateX(120px) translateY(-50%)
+              rotate(-180deg);
+          }
+          to {
+            transform: rotate(540deg) translateX(120px) translateY(-50%)
+              rotate(-540deg);
+          }
+        }
+
+        @keyframes orbit4 {
+          from {
+            transform: rotate(270deg) translateX(120px) translateY(-50%)
+              rotate(-270deg);
+          }
+          to {
+            transform: rotate(630deg) translateX(120px) translateY(-50%)
+              rotate(-630deg);
+          }
+        }
+
+        .model-center {
+          width: 120px;
+          height: 120px;
+          font-size: 0.9rem;
+        }
+
+        .model-card {
+          padding: var(--space-lg);
+        }
       }
 
       /* Benefits/Impact Section */
       .benefits {
-        background: var(--primary-50);
-        font-family: var(--font-montserrat);
+        background-color: var(--primary-50);
+        position: relative;
+        overflow: hidden;
       }
 
       .benefits-grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(250px, 1fr));
-        gap: var(--space-xl);
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-2xl);
         margin-top: var(--space-2xl);
       }
 
+      .benefits-left {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: var(--space-lg);
+      }
+
+      .benefits-top-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
+      }
+
+      .benefits-right {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
+      }
       .benefit-card {
         background: white;
-        padding: var(--space-md);
+        padding: var(--space-xl);
         border-radius: var(--radius-md);
         box-shadow: var(--shadow-sm);
-        display: flex;
-        gap: var(--space-md);
         transition: all var(--transition-normal);
         border: 1px solid var(--primary-100);
-        align-items: center;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        min-height: 300px;
       }
 
       .benefit-card:hover {
@@ -657,7 +1098,6 @@
       }
 
       .benefit-icon {
-        flex-shrink: 0;
         width: 40px;
         height: 40px;
         background: var(--gradient-primary);
@@ -667,16 +1107,218 @@
         justify-content: center;
         color: white;
         font-size: 1rem;
+        margin: var(--space-lg);
       }
 
       .benefit-content h3 {
-        margin-bottom: var(--space-xs);
-        font-size: 1.1rem;
+        font-size: 1.5rem;
+        margin-top: var(--space-lg);
+        margin-bottom: var(--space-xl);
+        color: var(--neutral-800);
+        font-weight: 700;
+      }
+
+      .benefit-content h4 {
+        font-size: 1.25rem;
+        margin-bottom: var(--space-xl);
+        color: var(--neutral-800);
+        font-weight: 700;
       }
 
       .benefit-content p {
-        margin-bottom: 0;
+        font-size: 0.8rem;
+        color: var(--neutral-600);
+        margin-top: var(--space-lg);
+        margin-bottom: var(--space-sm);
+      }
+
+      .benefit-content p strong {
+        font-weight: 700;
+        color: var(--primary-700);
+      }
+
+      .benefit-logo-card {
+        background: linear-gradient(
+          135deg,
+          var(--primary-100) 0%,
+          var(--primary-200) 100%
+        );
+        padding: var(--space-md);
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%; /* Match height of Environmental Impact card */
+        min-height: 200px;
+      }
+
+      .benefit-logo-card .logo-icon {
+        max-width: 80%; /* Reduced logo size */
+        max-height: 80%;
+        object-fit: contain;
+      }
+
+      .benefit-image-card {
+        position: relative;
+        background: white;
+        border-radius: var(--radius-md);
+        height: 100%;
+        min-height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--space-lg);
+        color: var(--neutral-800);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .benefit-image-card h3 {
+        font-size: 1.5rem;
+        color: var(--neutral-800);
+        text-align: center;
+      }
+
+      .benefit-image-card p {
+        margin-bottom: var(--space-sm);
         font-size: 0.9rem;
+        color: var(--neutral-600);
+        text-align: center;
+      }
+
+      .benefit-image-card .benefit-icon {
+        background: var(--gradient-primary);
+        color: white;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+
+      .benefit-image-card .btn {
+        background: var(--gradient-primary);
+        color: white;
+        padding: var(--space-sm) var(--space-lg);
+        font-size: 0.9rem;
+        align-self: center;
+      }
+
+      .benefit-donation-card {
+        background: linear-gradient(
+          135deg,
+          var(--primary-600) 0%,
+          var(--primary-700) 100%
+        );
+        padding: var(--space-lg);
+        border-radius: var(--radius-md);
+        color: white; /* Ensured all text is white */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .benefit-donation-card .tags {
+        display: flex;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-md);
+      }
+
+      .benefit-donation-card .tag {
+        background: var(--primary-100);
+        color: var(--primary-700);
+        padding: var(--space-xs) var(--space-sm);
+        border-radius: var(--radius-2xl);
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .benefit-donation-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: var(--space-sm);
+        color: white;
+      }
+
+      .benefit-donation-card p {
+        font-size: 0.9rem;
+        margin-bottom: 0;
+        color: white;
+      }
+
+      .benefit-event-card {
+        background: linear-gradient(
+          135deg,
+          var(--primary-100) 0%,
+          var(--primary-200) 100%
+        );
+        padding: var(--space-lg);
+        border-radius: var(--radius-md);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .benefit-event-card .benefit-icon {
+        margin: 0;
+        display: inline-flex;
+        margin-right: var(--space-sm);
+      }
+
+      .benefit-event-card h3 {
+        font-size: 1.25rem;
+        color: var(--neutral-800);
+        margin-bottom: var(--space-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .benefit-event-card p {
+        font-size: 0.9rem;
+        color: var(--neutral-600);
+        margin-bottom: 0;
+      }
+
+      .benefits-marquee {
+        background: var(--primary-100);
+        padding: var(--space-md) 0;
+        width: 100%;
+        overflow: hidden;
+        border-top: 1px solid var(--primary-200);
+      }
+
+      .benefits-marquee .container {
+        overflow: hidden;
+      }
+
+      .marquee-content {
+        display: inline-flex;
+        gap: var(--space-lg);
+        animation: marquee 15s linear infinite;
+        white-space: nowrap;
+        width: max-content;
+      }
+
+      .marquee-content span {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--primary-700);
+      }
+
+      .marquee-content i {
+        font-size: 1rem;
+        color: var(--primary-600);
+      }
+
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
       }
 
       /* Team Section */
@@ -727,14 +1369,8 @@
 
       /* Testimonials Section */
       .testimonials {
-        background: white;
-      }
-
-      .responsive-container-block.bg {
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-        max-width: 1200px;
+        background: white; /* Soft green background */
+        font-family: var(--font-montserrat);
         padding: var(--space-3xl) 0;
       }
 
@@ -746,174 +1382,204 @@
         margin-right: auto;
       }
 
-      .text-blk.title {
-        font-size: 36px;
-        line-height: 42px;
-        font-weight: 700;
-        color: var(--primary-500);
-        margin: var(--space-2xl) 0 var(--space-sm) 0;
-      }
-
-      .text-blk.heading {
-        font-size: 20px;
-        line-height: 34.1px;
-        text-align: center;
-        color: var(--neutral-600);
-        font-weight: 700;
-        margin: 0 var(--space-sm) var(--space-xs) var(--space-sm);
-        padding: 0 var(--space-sm);
-      }
-
-      .text-blk.desc {
-        max-width: 850px;
-        font-size: 18px;
-        line-height: 28.1px;
-        color: var(--neutral-500);
-        text-align: center;
-        margin: 0 0 var(--space-2xl) 0;
-        padding: 0 var(--space-sm);
-      }
-
-      .swiper-container.mySwiper {
-        width: 100%;
-        max-width: 1200px;
-        height: auto;
-        overflow-x: hidden;
-        overflow-y: hidden;
-        position: relative;
-      }
-
-      .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background-color: white;
-        display: flex;
-        justify-content: center;
+      .section-badge {
+        display: inline-flex;
         align-items: center;
-        opacity: 0;
-        margin: var(--space-xl) 0 0 0;
-        padding: 0 var(--space-md);
-        width: 50%;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .swiper-slide-active {
-        opacity: 1 !important;
-      }
-
-      .responsive-container-block.content {
-        flex-direction: column;
-        align-items: flex-start;
-        box-shadow: var(--shadow-md);
-        position: relative;
-        margin: var(--space-2xl) var(--space-sm) var(--space-3xl)
-          var(--space-sm);
+        gap: var(--space-xs);
+        padding: var(--space-xs) var(--space-md);
+        background: var(--primary-100);
+        color: var(--primary-700);
         border-radius: var(--radius-2xl);
-        border: 2px solid var(--primary-500);
-        padding: var(--space-md) var(--space-lg) var(--space-md)
-          var(--space-2xl);
-        background-color: white;
-        width: 100%;
-        max-width: 600px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: var(--space-lg);
+        border: 1px solid var(--primary-200);
       }
 
-      .text-blk.name {
-        font-size: 20px;
-        line-height: 27.28px;
-        font-weight: 900;
-        color: var(--neutral-700);
-        text-align: left;
-        margin: var(--space-2xl) 0 0 var(--space-sm);
-        padding: 0 var(--space-xs);
+      .section-header h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        color: var(--neutral-900);
+        margin-bottom: var(--space-lg);
+        font-weight: 700;
       }
 
-      .text-blk.desig {
-        font-size: 16px;
-        line-height: 21.82px;
+      .section-header p.text-lg {
+        font-size: 1.25rem;
+        line-height: 1.5;
         color: var(--neutral-600);
-        text-align: left;
-        margin: var(--space-xs) 0 0 var(--space-sm);
-        padding: 0 var(--space-xs);
+        max-width: 65ch;
+        margin: 0 auto;
       }
 
-      .text-blk.info {
-        font-size: 19px;
-        line-height: 30px;
-        text-align: left;
-        color: var(--neutral-500);
-        margin: var(--space-sm) 0 var(--space-lg) 0;
-        padding: 0 var(--space-xs);
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-xl);
+        justify-content: center;
+        align-items: stretch;
+        max-width: 1200px;
+        margin: 0 auto;
       }
 
-      .text-blk.quotes {
+      .testimonial-card {
+        background-color: var(--primary-50);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+        padding: var(--space-lg);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        position: relative;
+        transition: all var(--transition-normal);
+      }
+
+      .testimonial-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: scale(1.5);
+      }
+
+      .testimonial-card .quote {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--neutral-600);
+        margin-bottom: var(--space-lg);
+        position: relative;
+        text-align: left;
+        padding-top: 2rem;
+      }
+
+      .testimonial-card .closing-quote {
         position: absolute;
-        font-size: 288px;
-        line-height: 392.83px;
-        top: -140px;
-        font-weight: 900;
-        color: var(--neutral-400);
-        right: var(--space-sm);
+        top: -3.5rem; /* Move it up to overflow */
+        right: -1rem;
+        font-size: 10rem; /* Much larger size */
+        color: var(--neutral-500); /* Darker shade */
+        font-family: var(--font-montserrat);
+        line-height: 1;
+        pointer-events: none;
+        opacity: 0.5; /* Add some opacity for depth */
+        z-index: 0; /* Place behind content */
+        transform: rotate(8deg); /* Slight rotation for style */
+      }
+
+      .testimonial-card:hover .closing-quote {
+        color: var(--neutral-600); /* Even darker on hover */
+      }
+
+      .user-info {
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs);
       }
 
       .profile-image {
-        width: 100px;
-        height: 100px;
-        position: absolute;
-        top: var(--space-lg);
-        left: -50px;
-        z-index: 2;
+        width: 60px;
+        height: 60px;
         border-radius: 50%;
         object-fit: cover;
-      }
-
-      .swiper-pagination {
-        position: relative;
-        margin-top: var(--space-lg);
-      }
-
-      .swiper-pagination .swiper-pagination-bullet {
-        width: 28px;
-        height: 4px;
-        opacity: 0.1;
-        border-radius: 0;
-      }
-
-      .swiper-pagination .swiper-pagination-bullet-active {
-        background-color: var(--primary-500);
-        opacity: 1;
-      }
-
-      .nav-chevron {
-        position: absolute;
-        top: 40%;
-        background: var(--primary-100);
-        color: var(--primary-700);
         border: 2px solid var(--primary-200);
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        cursor: pointer;
+      }
+
+      .user-details {
         display: flex;
+        flex-direction: column;
+        gap: var(--space-xs);
+      }
+
+      .user-details .name {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--neutral-700);
+        margin: 0;
+        line-height: 1.2;
+      }
+
+      .user-details .role {
+        font-size: 0.875rem;
+        color: var(--neutral-500);
+        margin: 0;
+        line-height: 1.2;
+      }
+
+      .testimonial-card.highlighted .name,
+      .testimonial-card.highlighted .role {
+        color: white;
+      }
+
+      /* FAQ Section */
+      .faq {
+        background: var(--primary-50, #f0fdf4);
+        font-family: var(--font-montserrat, "Montserrat", sans-serif);
+        padding: var(--space-3xl, 3rem) 0;
+      }
+
+      .faq-grid {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md, 1rem);
+      }
+
+      .faq-item {
+        background: white;
+        border-radius: var(--radius-md, 0.5rem);
+        box-shadow: var(--shadow-sm, 0 1px 2px rgba(0, 0, 0, 0.1));
+        cursor: pointer;
+        transition: all var(--transition-normal, 0.3s ease);
+      }
+
+      .faq-item:hover {
+        box-shadow: var(--shadow-lg, 0 4px 6px rgba(0, 0, 0, 0.15));
+        transform: translateY(-4px);
+      }
+
+      .faq-header {
+        display: flex;
+        justify-content: space-between;
         align-items: center;
-        justify-content: center;
-        transition: all var(--transition-normal);
-        z-index: 20;
+        padding: var(--space-md, 1rem) var(--space-lg, 1.5rem);
+        border-bottom: 1px solid var(--primary-100, #d1fae5);
       }
 
-      .nav-chevron.prev {
-        left: var(--space-lg);
+      .faq-header h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--primary-700, #15803d);
+        font-family: var(--font-montserrat, "Montserrat", sans-serif);
+        margin: 0;
+        padding: var(--space-md, 1rem) 0;
       }
 
-      .nav-chevron.next {
-        right: var(--space-lg);
+      .faq-icon {
+        color: var(--primary-700, #15803d);
+        font-size: 1.5rem;
       }
 
-      .nav-chevron:hover {
-        background: var(--primary-50);
-        border-color: var(--primary-300);
-        color: var(--primary-800);
-        transform: scale(1.1);
+      .faq-icon i {
+        transition: transform 0.3s ease;
+      }
+
+      .faq-icon i.rotate-45 {
+        transform: rotate(45deg);
+      }
+
+      .faq-content {
+        display: none;
+        padding: var(--space-lg, 1.5rem);
+        font-size: 1rem;
+        color: var(--neutral-600, #4b5563);
+        line-height: 1.6;
+      }
+
+      .faq-content p {
+        margin: 0;
+        padding: var(--space-md, 1rem) 0;
+      }
+
+      .faq-item.active .faq-content {
+        display: block;
       }
 
       /* Animations */
@@ -952,8 +1618,18 @@
 
       /* Responsive Design */
       @media (max-width: 1024px) {
+        .hero-content {
+          flex-direction: column;
+          text-align: center;
+          gap: var(--space-2xl);
+        }
+
         .hero-text {
-          padding-top: var(--space-5xl);
+          padding-top: var(--space-2xl);
+        }
+
+        .hero-actions {
+          justify-content: center;
         }
 
         .swiper-slide {
@@ -1007,28 +1683,18 @@
         }
 
         /* About Section */
-        .about-content {
-          grid-template-columns: 1fr;
+        .about-throw {
           gap: var(--space-xl);
-        }
-
-        .about-image-grid {
-          height: 300px;
+          margin: var(--space-xl) 0;
+          padding: var(--space-lg) 0;
         }
 
         .about-text {
-          align-items: center;
+          padding: var(--space-lg);
         }
 
-        .about-text h3 {
-          margin-bottom: var(--space-xs);
-          text-align: center;
-        }
-
-        .about-text p {
-          text-align: justify;
-          margin: auto;
-          margin-bottom: var(--space-2xl);
+        .about-image img {
+          height: 350px;
         }
 
         /* Vision Section */
@@ -1045,19 +1711,18 @@
         }
 
         /* Model Section */
-        .model-timeline::before {
-          left: 16px;
+        .model-content {
+          grid-template-columns: 1fr;
+          gap: var(--space-2xl);
         }
 
-        .model-step {
-          padding-left: var(--space-2xl);
+        .model-circle-wrapper {
+          min-height: 500px;
         }
 
-        .model-step::before {
-          width: 32px;
-          height: 32px;
-          font-size: 1rem;
-          left: 0;
+        .model-details {
+          padding-left: 0;
+          padding-top: var(--space-xl);
         }
 
         /* Benefits/Impact Section */
@@ -1143,17 +1808,41 @@
         }
 
         /* About Section */
-        .about-content {
-          grid-template-columns: 1fr;
-          gap: var(--space-md);
+        .about-throw {
+          flex-direction: column;
+          gap: var(--space-xl);
+          margin: var(--space-xl) 0;
+          padding: var(--space-lg) 0;
         }
 
-        .about-image-grid {
-          height: 250px;
+        .about-throw.reverse {
+          flex-direction: column;
         }
 
-        .about-image-item:first-child {
-          transform: translateY(var(--space-xl));
+        .about-image {
+          width: 100%;
+        }
+
+        .about-image img {
+          height: 300px;
+        }
+
+        .about-text {
+          text-align: center;
+          padding: var(--space-lg);
+        }
+
+        .about-text h3 {
+          font-size: clamp(1.25rem, 2vw, 1.75rem);
+        }
+
+        .about-text h3::after {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        .about-text p {
+          font-size: clamp(0.9rem, 1.1vw, 1rem);
         }
 
         /* Vision Section */
@@ -1171,23 +1860,42 @@
         }
 
         /* Model Section */
-        .model-timeline::before {
-          left: 16px;
+        .model-circle {
+          width: 300px;
+          height: 300px;
         }
 
-        .model-step {
-          padding-left: var(--space-2xl);
+        .orbit-circle {
+          width: 80px;
+          height: 80px;
         }
 
-        .model-step::before {
-          width: 32px;
-          height: 32px;
-          font-size: 1rem;
-          left: 0;
+        .model-center {
+          width: 140px;
+          height: 140px;
+          font-size: 0.9rem;
+        }
+
+        .orbit-content {
+          font-size: 0.75rem;
         }
 
         /* Benefits/Impact Section */
         .benefits-grid {
+          grid-template-columns: 1fr;
+          gap: var(--space-xl);
+        }
+
+        .benefits-left,
+        .benefits-right {
+          gap: var(--space-lg);
+        }
+
+        .benefits-right {
+          grid-template-columns: 1fr;
+        }
+
+        .benefits-top-row {
           grid-template-columns: 1fr;
         }
 
@@ -1408,45 +2116,85 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-      <div class="hero-container">
-        <div class="hero-content">
-          <div class="hero-text">
-            <div class="hero-badge">
-              <i class="fas fa-leaf"></i>
-              <span>Sustainable Energy Solutions</span>
+      <!-- Main Hero Content -->
+      <div class="hero-row">
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-text">
+              <h1>Transforming Grain into Green Energy</h1>
+              <p class="text-lg">
+                Leading India's sustainable energy revolution through innovative
+                grain-based ethanol production with our cooperative-driven
+                approach and 200 KLPD capacity facility.
+              </p>
+              <div class="hero-actions">
+                <a href="#about" class="btn btn-primary">
+                  <span>Discover Our Mission</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#model" class="btn btn-secondary">
+                  <span>Our Cooperative Model</span>
+                </a>
+              </div>
             </div>
-            <h1>Transforming Grain into Green Energy</h1>
-            <p class="text-lg">
-              Leading India's sustainable energy revolution through innovative
-              grain-based ethanol production with our cooperative-driven
-              approach and 200 KLPD capacity facility.
-            </p>
-            <div class="hero-actions">
-              <a href="#about" class="btn btn-primary">
-                <span>Discover Our Mission</span>
-                <i class="fas fa-arrow-right"></i>
-              </a>
-              <a href="#model" class="btn btn-secondary">
-                <span>Our Cooperative Model</span>
-              </a>
-            </div>
-          </div>
-          <div class="hero-image">
-            <div class="hero-image-card">
-              <img
-                src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=2070"
-                alt="Sustainable farming"
-              />
+            <div class="hero-image">
+              <div class="hero-bento-grid">
+                <div class="bento-item bento-item-1">
+                  <img
+                    src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?q=80&w=2070"
+                    alt="Ethanol Production Facility"
+                  />
+                </div>
+                <div class="bento-item bento-item-2">
+                  <img
+                    src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?q=80&w=2070"
+                    alt="Green Energy"
+                  />
+                </div>
+                <div class="bento-item bento-item-3">
+                  <img
+                    src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?q=80&w=2070"
+                    alt="Sustainable Farming"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <section id="marquee">
+      <!-- Hero Marquee -->
+      <div class="hero-marquee">
+        <div class="marquee-content">
+          <span
+            ><i class="fas fa-leaf"></i> Transforming Grain to Green
+            Energy</span
+          >
+          <span
+            ><i class="fas fa-industry"></i> 200 KLPD Production Capacity</span
+          >
+          <span><i class="fas fa-users"></i> Empowering 5000+ Farmers</span>
+          <span
+            ><i class="fas fa-seedling"></i> Sustainable Biofuel Solutions</span
+          >
+          <span
+            ><i class="fas fa-leaf"></i> Transforming Grain to Green
+            Energy</span
+          >
+          <span
+            ><i class="fas fa-industry"></i> 200 KLPD Production Capacity</span
+          >
+        </div>
+      </div>
+    </section>
+
     <!-- Stats Section -->
-    <section class="stats">
-      <div class="container">
-        <div class="stats-grid">
+    <!-- <section id="stats">
+      <div class="hero-stat">
+        <div class="container">
+          <div class="stats-grid">
           <div class="stat-card animate-on-scroll">
             <div class="stat-number" data-target="200">0</div>
             <div class="stat-label">KLPD Production Capacity</div>
@@ -1465,7 +2213,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section>    -->
 
     <!-- About Section -->
     <section id="about" class="about section">
@@ -1476,14 +2224,16 @@
             <span>Cooperative Excellence</span>
           </div>
           <h2>Revolutionizing Rural Energy Production</h2>
-          <p class="text-lg">
-            We're building India's most sustainable ethanol production ecosystem
-            through farmer cooperation, ex-servicemen leadership, and
-            cutting-edge technology.
-          </p>
         </div>
 
-        <div class="about-content">
+        <!-- First Throw - Left Image, Right Text -->
+        <div class="about-throw">
+          <div class="about-image animate-on-scroll">
+            <img
+              src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?q=80&w=2088"
+              alt="Modern farming technology"
+            />
+          </div>
           <div class="about-text animate-on-scroll">
             <h3>Our Cooperative Advantage</h3>
             <p>
@@ -1492,7 +2242,18 @@
               fair pricing, and direct farmer benefits without middlemen
               interference.
             </p>
+          </div>
+        </div>
 
+        <!-- Second Throw - Right Image, Left Text -->
+        <div class="about-throw reverse">
+          <div class="about-image animate-on-scroll">
+            <img
+              src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=2070"
+              alt="Ex-servicemen leadership"
+            />
+          </div>
+          <div class="about-text animate-on-scroll">
             <h3>Ex-Servicemen Leadership</h3>
             <p>
               Our operations are led by dedicated ex-servicemen who bring
@@ -1500,30 +2261,24 @@
               our ethanol production process—from agriculture support to final
               product delivery.
             </p>
+          </div>
+        </div>
 
+        <!-- Third Throw - Left Image, Right Text -->
+        <div class="about-throw">
+          <div class="about-image animate-on-scroll">
+            <img
+              src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?q=80&w=2088"
+              alt="Technology and sustainability"
+            />
+          </div>
+          <div class="about-text animate-on-scroll">
             <h3>Technology & Sustainability</h3>
             <p>
               Using advanced grain-to-ethanol conversion technology, we maximize
               yield while minimizing environmental impact, contributing to
               India's energy security and climate goals.
             </p>
-          </div>
-
-          <div class="about-image animate-on-scroll">
-            <div class="about-image-grid">
-              <div class="about-image-item">
-                <img
-                  src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?q=80&w=2088"
-                  alt="Modern farming technology"
-                />
-              </div>
-              <div class="about-image-item">
-                <img
-                  src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=2070"
-                  alt="Grain processing facility"
-                />
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -1538,10 +2293,6 @@
             <span>Our Vision</span>
           </div>
           <h2>सहकार से समृद्धि - Prosperity Through Cooperation</h2>
-          <p class="text-lg">
-            Building a sustainable future where farmers prosper, communities
-            thrive, and India leads in clean energy production.
-          </p>
         </div>
 
         <div class="vision-grid">
@@ -1599,58 +2350,103 @@
           </p>
         </div>
 
-        <div class="model-timeline">
-          <div class="model-step animate-on-scroll">
-            <div class="model-step-content">
-              <h3>Agricultural Input Support</h3>
-              <p>
-                Provide farmers with premium seeds, fertilizers, and pesticides
-                through our cooperative network. Our agricultural experts ensure
-                optimal crop yields using sustainable farming practices and
-                modern techniques.
-              </p>
+        <div class="model-content">
+          <!-- Left side: Circular Visualization -->
+          <div class="model-circle-wrapper animate-on-scroll">
+            <div class="model-circle">
+              <!-- Center circle -->
+              <div class="model-center">
+                <strong>Complete<br />Cooperative<br />Model</strong>
+              </div>
+
+              <!-- Orbiting circles -->
+              <div class="orbit">
+                <div class="orbit-circle" data-step="1">
+                  <div class="orbit-content">
+                    <i class="fas fa-seedling"></i>
+                    <span>Agricultural<br />Input</span>
+                  </div>
+                </div>
+                <div class="orbit-circle" data-step="2">
+                  <div class="orbit-content">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <span>Procurement</span>
+                  </div>
+                </div>
+                <div class="orbit-circle" data-step="3">
+                  <div class="orbit-content">
+                    <i class="fas fa-users"></i>
+                    <span>Expert<br />Mgmt</span>
+                  </div>
+                </div>
+                <div class="orbit-circle" data-step="4">
+                  <div class="orbit-content">
+                    <i class="fas fa-leaf"></i>
+                    <span>Fuel<br />Production</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="model-step animate-on-scroll">
-            <div class="model-step-content">
-              <h3>Transparent Procurement</h3>
-              <p>
-                Direct procurement from farmers at fair market prices with
-                complete transparency. Our digital tracking system eliminates
-                middlemen and ensures farmers receive maximum value for their
-                produce.
-              </p>
-            </div>
-          </div>
-
-          <div class="model-step animate-on-scroll">
-            <div class="model-step-content">
-              <h3>Expert Management</h3>
-              <p>
-                Factory operations managed by experienced ex-servicemen bringing
-                discipline, integrity, and operational excellence. Our team
-                ensures consistent quality and efficient production processes.
-              </p>
-            </div>
-          </div>
-
-          <div class="model-step animate-on-scroll">
-            <div class="model-step-content">
-              <h3>Green Fuel Production</h3>
-              <p>
-                Advanced grain-to-ethanol conversion using cutting-edge
-                technology. Our 200 KLPD facility produces high-quality ethanol
-                that exceeds industry standards while minimizing environmental
-                impact.
-              </p>
+          <!-- Right side: Dynamic Content Card -->
+          <div class="model-details animate-on-scroll">
+            <div class="model-card">
+              <div class="model-card-content" data-step="1">
+                <h3><i class="fas fa-seedling"></i> Agricultural Input</h3>
+                <p>
+                  We provide farmers with high-quality seeds, technical
+                  guidance, and modern agricultural practices to ensure optimal
+                  crop yield and quality.
+                </p>
+                <ul>
+                  <li>Quality seed distribution</li>
+                  <li>Technical advisory services</li>
+                  <li>Modern farming techniques</li>
+                </ul>
+              </div>
+              <div class="model-card-content" data-step="2">
+                <h3><i class="fas fa-hand-holding-usd"></i> Procurement</h3>
+                <p>
+                  Direct procurement from farmers ensures fair pricing and
+                  eliminates middlemen, maximizing farmer benefits.
+                </p>
+                <ul>
+                  <li>Transparent pricing mechanism</li>
+                  <li>Direct farmer engagement</li>
+                  <li>Timely payments</li>
+                </ul>
+              </div>
+              <div class="model-card-content" data-step="3">
+                <h3><i class="fas fa-users"></i> Expert Management</h3>
+                <p>
+                  Ex-servicemen led operations bring discipline and efficiency
+                  to every aspect of our process.
+                </p>
+                <ul>
+                  <li>Professional management</li>
+                  <li>Operational excellence</li>
+                  <li>Strategic planning</li>
+                </ul>
+              </div>
+              <div class="model-card-content" data-step="4">
+                <h3><i class="fas fa-leaf"></i> Fuel Production</h3>
+                <p>
+                  State-of-the-art facility converts grain to clean, sustainable
+                  ethanol using advanced technology.
+                </p>
+                <ul>
+                  <li>200 KLPD capacity</li>
+                  <li>Quality control</li>
+                  <li>Sustainable practices</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Benefits/Impact Section -->
     <section id="benefits" class="benefits section">
       <div class="container">
         <div class="section-header animate-on-scroll">
@@ -1659,62 +2455,73 @@
             <span>Impact</span>
           </div>
           <h2>Transforming India's Energy Landscape</h2>
-          <p class="text-lg">
-            Our initiative creates positive impact across environmental,
-            economic, and social dimensions.
-          </p>
         </div>
         <div class="benefits-grid">
-          <div class="benefit-card animate-on-scroll">
-            <div class="benefit-icon">
-              <i class="fas fa-bolt"></i>
+          <!-- Left Column -->
+          <div class="benefits-left">
+            <!-- Top Row with 2 Cards -->
+            <div class="benefits-top-row">
+              <!-- Logo Card -->
+              <div class="benefit-logo-card animate-on-scroll">
+                <img
+                  src="assets/logo.png"
+                  alt="Shree Balaji Biofuels Logo"
+                  class="logo-icon"
+                />
+              </div>
+              <!-- Environmental Impact Card -->
+              <div class="benefit-donation-card animate-on-scroll">
+                <div class="tags">
+                  <span class="tag">Support</span>
+                  <span class="tag">Sustainability</span>
+                </div>
+                <h3>Environmental Impact</h3>
+                <p>
+                  Achieving 85% reduction in greenhouse gas emissions,
+                  supporting cleaner air and India's climate goals.
+                </p>
+              </div>
             </div>
-            <div class="benefit-content">
-              <h3>Energy Security</h3>
+            <!-- Bottom Full Width Card -->
+            <div class="benefit-event-card animate-on-scroll">
+              <h3>
+                <div class="benefit-icon">
+                  <i class="fas fa-globe"></i>
+                </div>
+                Energy Security
+              </h3>
               <p>
-                Reduce crude oil import dependency, saving foreign exchange and
-                strengthening India's energy independence through domestic
-                biofuel production.
+                Reducing crude oil imports to strengthen India's energy
+                independence through domestic biofuels.
               </p>
             </div>
           </div>
-          <div class="benefit-card animate-on-scroll">
-            <div class="benefit-icon">
-              <i class="fas fa-seedling"></i>
-            </div>
-            <div class="benefit-content">
-              <h3>Environmental Impact</h3>
-              <p>
-                Achieve 85% reduction in greenhouse gas emissions compared to
-                fossil fuels, supporting India's climate commitments and cleaner
-                air initiatives.
-              </p>
-            </div>
-          </div>
-          <div class="benefit-card animate-on-scroll">
-            <div class="benefit-icon">
-              <i class="fas fa-coins"></i>
-            </div>
-            <div class="benefit-content">
-              <h3>Rural Prosperity</h3>
-              <p>
-                Increase farmer income by 25% through fair pricing and direct
-                market access, while creating 1,200+ direct and indirect
-                employment opportunities.
-              </p>
-            </div>
-          </div>
-          <div class="benefit-card animate-on-scroll">
-            <div class="benefit-icon">
-              <i class="fas fa-industry"></i>
-            </div>
-            <div class="benefit-content">
+
+          <!-- Right Column -->
+          <div class="benefits-right">
+            <!-- Make in India Card -->
+            <div class="benefit-image-card animate-on-scroll">
+              <div class="benefit-icon">
+                <i class="fas fa-industry"></i>
+              </div>
               <h3>Make in India</h3>
               <p>
-                Boost domestic manufacturing and agro-processing capabilities,
-                contributing to Atmanirbhar Bharat and technological
-                self-reliance.
+                Boosting domestic manufacturing and agro-processing for
+                Atmanirbhar Bharat and technological self-reliance.
               </p>
+              <a href="#contact" class="btn">Join the Movement</a>
+            </div>
+            <!-- Rural Prosperity Card -->
+            <div class="benefit-card animate-on-scroll">
+              <div class="benefit-content">
+                <h3>Rural Prosperity</h3>
+                <h4>1,200+ Jobs Created</h4>
+                <p>Direct and indirect employment opportunities.</p>
+                <p>
+                  <strong>Increase farmer income by 25%</strong> through fair
+                  pricing and direct market access.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -1735,104 +2542,175 @@
             ensures quality, transparency, and farmer prosperity at every step.
           </p>
         </div>
-        <div class="swiper-container mySwiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="responsive-container-block content">
-                <p class="text-blk quotes">“</p>
-                <p class="text-blk name">Rajesh Kumar</p>
-                <img
-                  class="image-block profile-image"
-                  src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250&d=identicon"
-                  alt="Avatar 1"
-                />
-                <p class="text-blk desig">Farmer, Uttar Pradesh</p>
-                <p class="text-blk info">
-                  “Joining Shree Balaji Biofuels has transformed my livelihood.
-                  The fair pricing and support for quality seeds have doubled my
-                  income this year.”
-                </p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="responsive-container-block content">
-                <p class="text-blk quotes">“</p>
-                <p class="text-blk name">Anita Sharma</p>
-                <img
-                  class="image-block profile-image"
-                  src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=251&d=identicon"
-                  alt="Avatar 2"
-                />
-                <p class="text-blk desig">Farmer, Maharashtra</p>
-                <p class="text-blk info">
-                  “The cooperative model ensures we get timely payments and
-                  guidance, making farming more sustainable and profitable.”
-                </p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="responsive-container-block content">
-                <p class="text-blk quotes">“</p>
-                <p class="text-blk name">Vikram Singh</p>
-                <img
-                  class="image-block profile-image"
-                  src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=252&d=identicon"
-                  alt="Avatar 3"
-                />
-                <p class="text-blk desig">Farmer, Punjab</p>
-                <p class="text-blk info">
-                  “With Shree Balaji’s support, I’ve seen a significant
-                  reduction in my costs and an increase in crop yield, thanks to
-                  their expertise.”
-                </p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="responsive-container-block content">
-                <p class="text-blk quotes">“</p>
-                <p class="text-blk name">Priya Patel</p>
-                <img
-                  class="image-block profile-image"
-                  src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=254&d=identicon"
-                  alt="Avatar 5"
-                />
-                <p class="text-blk desig">Farmer, Gujarat</p>
-                <p class="text-blk info">
-                  “The ex-servicemen team’s dedication has made a huge
-                  difference in managing our fields efficiently.”
-                </p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="responsive-container-block content">
-                <p class="text-blk quotes">“</p>
-                <p class="text-blk name">Suresh Reddy</p>
-                <img
-                  class="image-block profile-image"
-                  src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=254&d=identicon"
-                  alt="Avatar 5"
-                />
-                <p class="text-blk desig">Farmer, Andhra Pradesh</p>
-                <p class="text-blk info">
-                  “I’m proud to contribute to India’s green energy goals while
-                  seeing my family prosper through this initiative.”
-                </p>
+        <div class="testimonials-grid">
+          <div class="testimonial-card animate-on-scroll">
+            <p class="quote">
+              “Joining Shree Balaji Biofuels has transformed my livelihood. The
+              fair pricing and support for quality seeds have doubled my income
+              this year.”
+              <span class="closing-quote">”</span>
+            </p>
+            <div class="user-info">
+              <img
+                class="profile-image"
+                src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250&d=identicon"
+                alt="Rajesh Kumar"
+              />
+              <div class="user-details">
+                <p class="name">Rajesh Kumar</p>
+                <p class="role">Farmer, Uttar Pradesh</p>
               </div>
             </div>
           </div>
-          <div class="swiper-pagination container-block"></div>
-          <button class="nav-chevron prev" id="prev-btn">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button class="nav-chevron next" id="next-btn">
-            <i class="fas fa-chevron-right"></i>
-          </button>
+          <div class="testimonial-card animate-on-scroll">
+            <p class="quote">
+              “The cooperative model ensures we get timely payments and
+              guidance, making farming more sustainable and profitable.”
+              <span class="closing-quote">”</span>
+            </p>
+            <div class="user-info">
+              <img
+                class="profile-image"
+                src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=251&d=identicon"
+                alt="Anita Sharma"
+              />
+              <div class="user-details">
+                <p class="name">Anita Sharma</p>
+                <p class="role">Farmer, Maharashtra</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card animate-on-scroll">
+            <p class="quote">
+              “With Shree Balaji’s support, I’ve seen a significant reduction in
+              my costs and an increase in crop yield, thanks to their
+              expertise.”
+              <span class="closing-quote">”</span>
+            </p>
+            <div class="user-info">
+              <img
+                class="profile-image"
+                src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=252&d=identicon"
+                alt="Vikram Singh"
+              />
+              <div class="user-details">
+                <p class="name">Vikram Singh</p>
+                <p class="role">Farmer, Punjab</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card animate-on-scroll">
+            <p class="quote">
+              “The ex-servicemen team’s dedication has made a huge difference in
+              managing our fields efficiently.”
+              <span class="closing-quote">”</span>
+            </p>
+            <div class="user-info">
+              <img
+                class="profile-image"
+                src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=254&d=identicon"
+                alt="Priya Patel"
+              />
+              <div class="user-details">
+                <p class="name">Priya Patel</p>
+                <p class="role">Farmer, Gujarat</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq section">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <div class="section-badge">
+            <i class="fas fa-question-circle"></i>
+            <span>FAQ</span>
+          </div>
+          <h2>Frequently Asked Questions</h2>
+          <p class="text-lg">
+            Answers to common questions about our mission and operations.
+          </p>
+        </div>
+        <div class="faq-grid">
+          <div class="faq-item animate-on-scroll">
+            <div class="faq-header">
+              <h3>What is Shree Balaji Biofuels’ mission?</h3>
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="faq-content">
+              <p>
+                Our mission is to produce sustainable, grain-based ethanol (200
+                KLPD) using maize and rice, empowering farmers through a
+                cooperative model and contributing to India’s energy security
+                with eco-friendly fuel.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll">
+            <div class="faq-header">
+              <h3>How does the cooperative model work?</h3>
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="faq-content">
+              <p>
+                We operate through Venkateshwara Co-operative Power and Agro
+                Processing Ltd., involving farmers in procurement, operations,
+                and management. This ensures fair pricing, direct market access,
+                and support like high-quality seeds and agri-inputs.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll">
+            <div class="faq-header">
+              <h3>Who manages the ethanol plant?</h3>
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="faq-content">
+              <p>
+                The plant is led by ex-servicemen, bringing discipline and
+                integrity to operations, from raw material procurement to
+                production, ensuring operational excellence and social
+                responsibility.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll">
+            <div class="faq-header">
+              <h3>How does Shree Balaji Biofuels support farmers?</h3>
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="faq-content">
+              <p>
+                We provide agri-input support, high-quality seeds, transparent
+                pricing, and direct procurement without middlemen, ensuring fair
+                income and sustainable farming practices.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll">
+            <div class="faq-header">
+              <h3>
+                What environmental impact does your ethanol production have?
+              </h3>
+              <span class="faq-icon"><i class="fas fa-plus"></i></span>
+            </div>
+            <div class="faq-content">
+              <p>
+                Our grain-based ethanol is eco-friendly, reducing carbon
+                emissions and promoting cleaner fuel alternatives, contributing
+                to India’s energy independence and sustainability goals.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CTA Section -->
-    <!-- <section class="cta section">
+    <section class="cta section">
       <div class="container">
         <div class="section-header partner animate-on-scroll">
           <h2>Join the Green Energy Revolution</h2>
@@ -1846,13 +2724,120 @@
           </a>
         </div>
       </div>
-    </section> -->
+    </section>
 
     <!-- Include Footer -->
     <div id="footer-placeholder"></div>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
+      // Model Section Interaction
+      document.addEventListener("DOMContentLoaded", () => {
+        const modelCards = document.querySelectorAll(".model-card-content");
+        const orbitCircles = document.querySelectorAll(".orbit-circle");
+        let currentStep = 1;
+        let isAutoRotating = true;
+        let autoRotateInterval;
+
+        const positions = ["top", "right", "bottom", "left"];
+
+        function rotateClockwise(currentPosition) {
+          const positionMap = {
+            top: "right",
+            right: "bottom",
+            bottom: "left",
+            left: "top",
+          };
+          return positionMap[currentPosition];
+        }
+
+        function updateOrbitPositions(step) {
+          // Clear all active states first
+          orbitCircles.forEach((circle) => circle.classList.remove("active"));
+
+          // Find the clicked circle or the current step circle
+          const targetCircle = document.querySelector(
+            `.orbit-circle[data-step="${step}"]`
+          );
+          if (!targetCircle) return;
+
+          // Calculate positions based on the target circle
+          let currentPos = "right"; // Start with the target at right position
+          targetCircle.dataset.position = currentPos;
+          targetCircle.classList.add("active");
+
+          // Update content for the active circle
+          updateContent(step);
+
+          // Position other circles clockwise from the active one
+          let nextCircle = targetCircle;
+          for (let i = 0; i < 3; i++) {
+            // Find next circle in sequence
+            const currentStep = parseInt(nextCircle.dataset.step);
+            const nextStep = currentStep === 4 ? 1 : currentStep + 1;
+            nextCircle = document.querySelector(
+              `.orbit-circle[data-step="${nextStep}"]`
+            );
+
+            if (nextCircle) {
+              currentPos = rotateClockwise(currentPos);
+              nextCircle.dataset.position = currentPos;
+            }
+          }
+        }
+
+        function updateContent(step) {
+          modelCards.forEach((card) => {
+            card.style.opacity = "0";
+            card.classList.remove("active");
+          });
+
+          const activeCard = document.querySelector(
+            `.model-card-content[data-step="${step}"]`
+          );
+          if (activeCard) {
+            setTimeout(() => {
+              activeCard.classList.add("active");
+              activeCard.style.opacity = "1";
+            }, 300);
+          }
+        }
+
+        function startAutoRotate() {
+          autoRotateInterval = setInterval(() => {
+            currentStep = currentStep === 4 ? 1 : currentStep + 1;
+            updateOrbitPositions(currentStep);
+          }, 5000);
+        }
+
+        // Initialize
+        updateOrbitPositions(1);
+        startAutoRotate();
+
+        // Click handlers
+        orbitCircles.forEach((circle) => {
+          circle.addEventListener("click", () => {
+            const clickedStep = parseInt(circle.dataset.step);
+            clearInterval(autoRotateInterval);
+            isAutoRotating = false;
+            currentStep = clickedStep;
+            updateOrbitPositions(clickedStep);
+          });
+        });
+
+        // Restart auto-rotation after inactivity
+        document
+          .querySelector(".model-circle")
+          .addEventListener("mouseleave", () => {
+            if (!isAutoRotating) {
+              setTimeout(() => {
+                isAutoRotating = true;
+                startAutoRotate();
+              }, 10000);
+            }
+          });
+      });
+
       // Load navbar and footer
       fetch("navbar.html")
         .then((response) => response.text())
@@ -2029,10 +3014,39 @@
         { threshold: 0.5 }
       );
 
-      const statsSection = document.querySelector(".stats");
+      const statsSection = document.querySelector(".stats-grid");
       if (statsSection) {
         statsObserver.observe(statsSection);
+        // Trigger counter animation immediately if stats are already visible
+        const rect = statsSection.getBoundingClientRect();
+        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+          animateCounters();
+        }
       }
+
+      // FAQ Toggle
+      document.querySelectorAll(".faq-item").forEach((item) => {
+        item.querySelector(".faq-header").addEventListener("click", () => {
+          const content = item.querySelector(".faq-content");
+          const isActive = item.classList.contains("active");
+
+          // Close all FAQ items
+          document.querySelectorAll(".faq-item").forEach((el) => {
+            el.classList.remove("active");
+            el.querySelector(".faq-content").style.display = "none";
+            const elIcon = el.querySelector(".faq-icon i");
+            elIcon.classList.remove("rotate-45");
+          });
+
+          // Toggle the clicked item
+          if (!isActive) {
+            item.classList.add("active");
+            content.style.display = "block";
+            const icon = item.querySelector(".faq-icon i");
+            icon.classList.add("rotate-45");
+          }
+        });
+      });
 
       // Mobile menu toggle
       document.addEventListener("click", (e) => {
@@ -2063,51 +3077,6 @@
           imageObserver.observe(img);
         });
       }
-
-      // Testimonials Swiper with auto cycling, infinite loop, and timer reset
-      var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 1,
-        spaceBetween: 0,
-        centeredSlides: true,
-        loop: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: "#next-btn",
-          prevEl: "#prev-btn",
-        },
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false,
-        },
-        breakpoints: {
-          300: {
-            slidesPerView: 1,
-          },
-          501: {
-            slidesPerView: 1,
-          },
-          769: {
-            slidesPerView: 1,
-          },
-          1025: {
-            slidesPerView: 1,
-          },
-        },
-      });
-
-      // Reset autoplay timer on manual navigation
-      const prevBtn = document.getElementById("prev-btn");
-      const nextBtn = document.getElementById("next-btn");
-
-      [prevBtn, nextBtn].forEach((btn) => {
-        btn.addEventListener("click", () => {
-          swiper.autoplay.stop();
-          swiper.autoplay.start();
-        });
-      });
     </script>
   </body>
 </html>

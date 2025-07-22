@@ -1,0 +1,2113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shree Balaji Biofuels - Sustainable Energy Solutions</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <style>
+      /* Reset and Global Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 5rem;
+      }
+
+      body {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--neutral-800);
+        background-color: white;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      /* Variables */
+      :root {
+        /* Colors - Professional Green Palette */
+        --primary-50: #f0fdf4;
+        --primary-100: #dcfce7;
+        --primary-200: #bbf7d0;
+        --primary-300: #86efac;
+        --primary-400: #4ade80;
+        --primary-500: #22c55e;
+        --primary-600: #16a34a;
+        --primary-700: #15803d;
+        --primary-800: #166534;
+        --primary-900: #14532d;
+
+        /* Accent Colors */
+        --accent-amber: #f59e0b;
+        --accent-blue: #3b82f6;
+        --accent-orange: #ea580c;
+
+        /* Neutrals */
+        --neutral-50: #fafafa;
+        --neutral-100: #f5f5f5;
+        --neutral-200: #e5e5e5;
+        --neutral-300: #d4d4d4;
+        --neutral-400: #a3a3a3;
+        --neutral-500: #737373;
+        --neutral-600: #525252;
+        --neutral-700: #404040;
+        --neutral-800: #262626;
+        --neutral-900: #171717;
+
+        /* New Colors for Updated Design */
+        --secondary-50: #e6f3ff;
+        --secondary-100: #cce7ff;
+        --secondary-200: #99ceff;
+        --secondary-300: #66b5ff;
+        --secondary-400: #339cff;
+        --secondary-500: #0053ff;
+        --secondary-600: #0066cc;
+        --secondary-700: #004999;
+        --secondary-800: #003366;
+        --secondary-900: #001a33;
+
+        /* Typography */
+        --font-display: "Space Grotesk", system-ui, sans-serif;
+        --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+        --font-montserrat: "Montserrat", system-ui, sans-serif;
+
+        /* Spacing */
+        --space-xs: 0.5rem;
+        --space-sm: 0.75rem;
+        --space-md: 1rem;
+        --space-lg: 1.5rem;
+        --space-xl: 2rem;
+        --space-2xl: 3rem;
+        --space-3xl: 4rem;
+        --space-4xl: 6rem;
+        --space-5xl: 8rem;
+
+        /* Shadows */
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow-md: 0 4px 20px 7px rgb(0 0 0 / 0.05);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+          0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+          0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+        /* Gradients */
+        --gradient-primary: linear-gradient(
+          135deg,
+          var(--primary-600) 0%,
+          var(--primary-700) 100%
+        );
+        --gradient-secondary: linear-gradient(
+          135deg,
+          var(--accent-amber) 0%,
+          var(--accent-orange) 100%
+        );
+        --gradient-hero: linear-gradient(
+          135deg,
+          var(--primary-50) 0%,
+          var(--primary-100) 100%
+        );
+        --gradient-secondary-blue: linear-gradient(
+          135deg,
+          var(--secondary-500) 0%,
+          var(--secondary-700) 100%
+        );
+        --gradient-testimonial: linear-gradient(
+          135deg,
+          var(--primary-50) 0%,
+          var(--primary-100) 70%
+        );
+
+        /* Border Radius */
+        --radius-sm: 0.5rem;
+        --radius-md: 0.75rem;
+        --radius-lg: 0.75rem;
+        --radius-xl: 1.5rem;
+        --radius-2xl: 2rem;
+
+        /* Transitions */
+        --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Typography */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: var(--font-display);
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: -0.025em;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 700;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: var(--space-lg);
+      }
+
+      h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        color: var(--neutral-900);
+        margin-bottom: var(--space-lg);
+      }
+
+      h3 {
+        font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+        color: var(--neutral-800);
+        margin-bottom: var(--space-md);
+      }
+
+      p {
+        margin-bottom: var(--space-lg);
+        color: var(--neutral-600);
+        font-size: 1.1rem;
+        max-width: 65ch;
+      }
+
+      .text-lg {
+        font-size: 1.25rem;
+        line-height: 1.5;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      /* Layout and Containers */
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 var(--space-lg);
+      }
+
+      .hero-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 var(--space-lg);
+      }
+
+      .section {
+        padding: var(--space-2xl) 0;
+        position: relative;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: var(--space-4xl);
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .partner {
+        text-align: center;
+        margin-bottom: var(--space-lg);
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .section-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-xs);
+        padding: var(--space-xs) var(--space-md);
+        background: var(--primary-100);
+        color: var(--primary-700);
+        border-radius: var(--radius-2xl);
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: var(--space-lg);
+        border: 1px solid var(--primary-200);
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        padding: var(--space-lg) var(--space-xl);
+        border-radius: var(--radius-lg);
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: all var(--transition-normal);
+        cursor: pointer;
+        border: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-primary {
+        background: var(--gradient-primary);
+        color: white;
+        box-shadow: var(--shadow-md);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .btn-secondary {
+        background: white;
+        color: var(--primary-600) !important;
+        border: 2px solid var(--primary-200);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .btn-secondary:hover {
+        background: var(--primary-50) !important;
+        border-color: var(--primary-300);
+        transform: translateY(-2px);
+      }
+
+      .btn i {
+        transition: transform var(--transition-normal);
+      }
+
+      .btn:hover i {
+        transform: translateX(4px);
+      }
+
+      /* Hero Section */
+      .hero {
+        background: var(--gradient-hero);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60%;
+        height: 100%;
+        background: url("https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=2070")
+          center/cover;
+        opacity: 0.1;
+        z-index: 0;
+      }
+
+      .hero-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4xl);
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-text {
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-xs);
+        padding: var(--space-sm) var(--space-lg);
+        background: white;
+        color: var(--primary-600);
+        border-radius: var(--radius-2xl);
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: var(--space-xl);
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--primary-200);
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: var(--space-lg);
+        margin-top: var(--space-xl);
+      }
+
+      .hero-image {
+        position: relative;
+        animation: fadeInRight 1s ease-out 0.3s both;
+      }
+
+      .hero-image-card {
+        background: white;
+        border-radius: var(--radius-2xl);
+        padding: var(--space-lg);
+        box-shadow: var(--shadow-xl);
+        transform: rotate(3deg);
+        transition: transform var(--transition-slow);
+      }
+
+      .hero-image-card:hover {
+        transform: rotate(0deg) scale(1.02);
+      }
+
+      .hero-image-card img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: var(--radius-lg);
+      }
+
+      /* Stats Section */
+      .stats {
+        background: white;
+        padding: var(--space-3xl) 0;
+        border-bottom: 1px solid var(--neutral-200);
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--space-xl);
+      }
+
+      .stat-card {
+        text-align: center;
+        padding: var(--space-xl);
+        background: var(--neutral-50);
+        border-radius: var(--radius-xl);
+        transition: all var(--transition-normal);
+      }
+
+      .stat-card:hover {
+        background: white;
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-4px);
+      }
+
+      .stat-number {
+        font-family: var(--font-display);
+        font-size: 3rem;
+        font-weight: 700;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: var(--space-sm);
+      }
+
+      .stat-label {
+        color: var(--neutral-600);
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+
+      /* About Section */
+      .about {
+        background: white;
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4xl);
+        align-items: center;
+      }
+
+      .about-text h3 {
+        margin-bottom: var(--space-xs);
+      }
+
+      .about-text p {
+        margin-bottom: var(--space-2xl);
+      }
+
+      .about-image {
+        position: relative;
+      }
+
+      .about-image-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg);
+        height: 400px;
+      }
+
+      .about-image-item {
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        transition: transform var(--transition-slow);
+      }
+
+      .about-image-item:hover {
+        transform: scale(1.05);
+      }
+
+      .about-image-item:first-child {
+        transform: translateY(var(--space-xl));
+      }
+
+      .about-image-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Vision Section */
+      .vision {
+        background: var(--primary-50);
+        font-family: var(--font-montserrat);
+      }
+
+      .vision-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--space-xl);
+      }
+
+      .vision-card {
+        background: white;
+        padding: var(--space-2xl);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+        transition: all var(--transition-normal);
+        border: 1px solid var(--primary-100);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .vision-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--gradient-primary);
+        opacity: 0;
+        transition: opacity var(--transition-normal);
+      }
+
+      .vision-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .vision-card:hover::before {
+        opacity: 0.05;
+      }
+
+      .vision-icon {
+        width: 56px;
+        height: 56px;
+        background: var(--gradient-primary);
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.25rem;
+        margin-bottom: var(--space-lg);
+        transition: all var(--transition-normal);
+      }
+
+      .vision-card:hover .vision-icon {
+        background: var(--gradient-primary);
+        transform: scale(1.05);
+      }
+
+      .vision-card h3,
+      .vision-card p {
+        min-height: 3.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Model Section */
+      .model {
+        background: white;
+        font-family: var(--font-montserrat);
+      }
+
+      .model-timeline {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .model-timeline::before {
+        content: "";
+        position: absolute;
+        left: 32px;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: var(--gradient-primary);
+      }
+
+      .model-step {
+        position: relative;
+        padding-left: var(--space-4xl);
+        margin-bottom: var(--space-3xl);
+      }
+
+      .model-step:last-child {
+        margin-bottom: 0;
+      }
+
+      .model-step::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 64px;
+        height: 64px;
+        background: var(--gradient-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border: 4px solid var(--primary-50);
+        box-shadow: var(--shadow-md);
+      }
+
+      .model-step:nth-child(1)::before {
+        content: "1";
+      }
+      .model-step:nth-child(2)::before {
+        content: "2";
+      }
+      .model-step:nth-child(3)::before {
+        content: "3";
+      }
+      .model-step:nth-child(4)::before {
+        content: "4";
+      }
+
+      .model-step-content {
+        background: var(--primary-50);
+        padding: var(--space-xl);
+        border-radius: var(--radius-md);
+        border-left: 4px solid var(--primary-500);
+        transition: all var(--transition-normal);
+      }
+
+      .model-step:hover .model-step-content {
+        background: white;
+        box-shadow: var(--shadow-md);
+        transform: translateX(var(--space-sm));
+      }
+
+      /* Benefits/Impact Section */
+      .benefits {
+        background: var(--primary-50);
+        font-family: var(--font-montserrat);
+      }
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(250px, 1fr));
+        gap: var(--space-xl);
+        margin-top: var(--space-2xl);
+      }
+
+      .benefit-card {
+        background: white;
+        padding: var(--space-md);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+        display: flex;
+        gap: var(--space-md);
+        transition: all var(--transition-normal);
+        border: 1px solid var(--primary-100);
+        align-items: center;
+      }
+
+      .benefit-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-4px);
+      }
+
+      .benefit-icon {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        background: var(--gradient-primary);
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1rem;
+      }
+
+      .benefit-content h3 {
+        margin-bottom: var(--space-xs);
+        font-size: 1.1rem;
+      }
+
+      .benefit-content p {
+        margin-bottom: 0;
+        font-size: 0.9rem;
+      }
+
+      /* Team Section */
+      .team {
+        background: white;
+        font-family: var(--font-montserrat);
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-xl);
+        margin-top: var(--space-2xl);
+      }
+
+      .team-card {
+        background: var(--primary-50);
+        padding: var(--space-md);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+        text-align: center;
+        transition: all var(--transition-normal);
+        border: 1px solid var(--primary-100);
+      }
+
+      .team-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-4px);
+      }
+
+      .team-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: var(--radius-md);
+        margin-bottom: var(--space-sm);
+      }
+
+      .team-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: var(--space-xs);
+      }
+
+      .team-card p {
+        font-size: 0.9rem;
+        color: var(--neutral-600);
+      }
+
+      /* Testimonials Section */
+      .testimonials {
+        background: white;
+      }
+
+      .responsive-container-block.bg {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        max-width: 1200px;
+        padding: var(--space-3xl) 0;
+      }
+
+      .section-header.testimonials-header {
+        text-align: center;
+        margin-bottom: var(--space-4xl);
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .text-blk.title {
+        font-size: 36px;
+        line-height: 42px;
+        font-weight: 700;
+        color: var(--primary-500);
+        margin: var(--space-2xl) 0 var(--space-sm) 0;
+      }
+
+      .text-blk.heading {
+        font-size: 20px;
+        line-height: 34.1px;
+        text-align: center;
+        color: var(--neutral-600);
+        font-weight: 700;
+        margin: 0 var(--space-sm) var(--space-xs) var(--space-sm);
+        padding: 0 var(--space-sm);
+      }
+
+      .text-blk.desc {
+        max-width: 850px;
+        font-size: 18px;
+        line-height: 28.1px;
+        color: var(--neutral-500);
+        text-align: center;
+        margin: 0 0 var(--space-2xl) 0;
+        padding: 0 var(--space-sm);
+      }
+
+      .swiper-container.mySwiper {
+        width: 100%;
+        max-width: 1200px;
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        position: relative;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        margin: var(--space-xl) 0 0 0;
+        padding: 0 var(--space-md);
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .swiper-slide-active {
+        opacity: 1 !important;
+      }
+
+      .responsive-container-block.content {
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: var(--shadow-md);
+        position: relative;
+        margin: var(--space-2xl) var(--space-sm) var(--space-3xl)
+          var(--space-sm);
+        border-radius: var(--radius-2xl);
+        border: 2px solid var(--primary-500);
+        padding: var(--space-md) var(--space-lg) var(--space-md)
+          var(--space-2xl);
+        background-color: white;
+        width: 100%;
+        max-width: 600px;
+      }
+
+      .text-blk.name {
+        font-size: 20px;
+        line-height: 27.28px;
+        font-weight: 900;
+        color: var(--neutral-700);
+        text-align: left;
+        margin: var(--space-2xl) 0 0 var(--space-sm);
+        padding: 0 var(--space-xs);
+      }
+
+      .text-blk.desig {
+        font-size: 16px;
+        line-height: 21.82px;
+        color: var(--neutral-600);
+        text-align: left;
+        margin: var(--space-xs) 0 0 var(--space-sm);
+        padding: 0 var(--space-xs);
+      }
+
+      .text-blk.info {
+        font-size: 19px;
+        line-height: 30px;
+        text-align: left;
+        color: var(--neutral-500);
+        margin: var(--space-sm) 0 var(--space-lg) 0;
+        padding: 0 var(--space-xs);
+      }
+
+      .text-blk.quotes {
+        position: absolute;
+        font-size: 288px;
+        line-height: 392.83px;
+        top: -140px;
+        font-weight: 900;
+        color: var(--neutral-400);
+        right: var(--space-sm);
+      }
+
+      .profile-image {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: var(--space-lg);
+        left: -50px;
+        z-index: 2;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .swiper-pagination {
+        position: relative;
+        margin-top: var(--space-lg);
+      }
+
+      .swiper-pagination .swiper-pagination-bullet {
+        width: 28px;
+        height: 4px;
+        opacity: 0.1;
+        border-radius: 0;
+      }
+
+      .swiper-pagination .swiper-pagination-bullet-active {
+        background-color: var(--primary-500);
+        opacity: 1;
+      }
+
+      .nav-chevron {
+        position: absolute;
+        top: 40%;
+        background: var(--primary-100);
+        color: var(--primary-700);
+        border: 2px solid var(--primary-200);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all var(--transition-normal);
+        z-index: 20;
+      }
+
+      .nav-chevron.prev {
+        left: var(--space-lg);
+      }
+
+      .nav-chevron.next {
+        right: var(--space-lg);
+      }
+
+      .nav-chevron:hover {
+        background: var(--primary-50);
+        border-color: var(--primary-300);
+        color: var(--primary-800);
+        transform: scale(1.1);
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out;
+      }
+
+      .animate-on-scroll.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .hero-text {
+          padding-top: var(--space-5xl);
+        }
+
+        .swiper-slide {
+          opacity: 0.5;
+        }
+
+        .text-blk.heading {
+          font-size: 18px;
+        }
+
+        .text-blk.title {
+          font-size: 32px;
+          line-height: 40px;
+        }
+
+        .text-blk.desc {
+          font-size: 17px;
+          line-height: 25.1px;
+          max-width: 600px;
+        }
+
+        .text-blk.info {
+          font-size: 18px;
+          line-height: 28px;
+        }
+
+        .text-blk.name {
+          font-size: 18px;
+        }
+
+        /* Hero Section */
+        .hero-content {
+          grid-template-columns: 1fr;
+          gap: var(--space-2xl);
+          text-align: center;
+        }
+
+        .hero-actions {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .hero-image-card img {
+          height: 250px;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: var(--space-lg);
+        }
+
+        /* About Section */
+        .about-content {
+          grid-template-columns: 1fr;
+          gap: var(--space-xl);
+        }
+
+        .about-image-grid {
+          height: 300px;
+        }
+
+        .about-text {
+          align-items: center;
+        }
+
+        .about-text h3 {
+          margin-bottom: var(--space-xs);
+          text-align: center;
+        }
+
+        .about-text p {
+          text-align: justify;
+          margin: auto;
+          margin-bottom: var(--space-2xl);
+        }
+
+        /* Vision Section */
+        .vision-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .vision-card {
+          margin: 0 auto;
+        }
+
+        .vision-card h3 {
+          min-height: auto;
+        }
+
+        /* Model Section */
+        .model-timeline::before {
+          left: 16px;
+        }
+
+        .model-step {
+          padding-left: var(--space-2xl);
+        }
+
+        .model-step::before {
+          width: 32px;
+          height: 32px;
+          font-size: 1rem;
+          left: 0;
+        }
+
+        /* Benefits/Impact Section */
+        .benefits-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .benefit-card {
+          margin: 0 auto;
+        }
+
+        /* Team Section */
+        .team-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .team-card img {
+          height: 120px;
+        }
+
+        /* Testimonials Section */
+        .responsive-container-block.content {
+          padding: var(--space-xl);
+          width: 70%;
+          margin: var(--space-xl) 0 var(--space-2xl) 0;
+        }
+
+        .swiper-container.mySwiper {
+          min-width: 95%;
+        }
+
+        .swiper-slide {
+          min-width: 100%;
+          width: 50%;
+        }
+
+        .swiper-wrapper {
+          min-width: 100%;
+        }
+
+        .nav-chevron.prev {
+          left: var(--space-sm);
+        }
+
+        .nav-chevron.next {
+          right: var(--space-sm);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 var(--space-md);
+        }
+
+        .hero-container {
+          padding: 0 var(--space-md);
+        }
+
+        .section {
+          padding: var(--space-3xl) 0;
+        }
+
+        /* Hero Section */
+        .hero-content {
+          grid-template-columns: 1fr;
+          gap: var(--space-2xl);
+          text-align: center;
+        }
+
+        .hero-actions {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .hero-image-card img {
+          height: 200px;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+          grid-template-columns: 1fr;
+          gap: var(--space-md);
+        }
+
+        /* About Section */
+        .about-content {
+          grid-template-columns: 1fr;
+          gap: var(--space-md);
+        }
+
+        .about-image-grid {
+          height: 250px;
+        }
+
+        .about-image-item:first-child {
+          transform: translateY(var(--space-xl));
+        }
+
+        /* Vision Section */
+        .vision-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .vision-card {
+          width: 80%;
+          margin: 0 auto var(--space-lg);
+        }
+
+        .vision-card h3 {
+          min-height: auto;
+        }
+
+        /* Model Section */
+        .model-timeline::before {
+          left: 16px;
+        }
+
+        .model-step {
+          padding-left: var(--space-2xl);
+        }
+
+        .model-step::before {
+          width: 32px;
+          height: 32px;
+          font-size: 1rem;
+          left: 0;
+        }
+
+        /* Benefits/Impact Section */
+        .benefits-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .benefit-card {
+          width: 90%;
+          margin: 0 auto var(--space-lg);
+        }
+
+        /* Team Section */
+        .team-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .team-card {
+          width: 90%;
+          margin: 0 auto var(--space-lg);
+        }
+
+        /* Testimonials Section */
+        .swiper-container.mySwiper {
+          min-width: 90%;
+        }
+
+        .swiper-slide {
+          width: 70%;
+        }
+
+        .nav-chevron {
+          width: 40px;
+          height: 40px;
+        }
+
+        .responsive-container-block.content {
+          padding: var(--space-xl);
+          width: 70%;
+          margin: var(--space-xl) 0 var(--space-2xl) 0;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .container {
+          padding: 0 var(--space-sm);
+        }
+
+        .hero-container {
+          padding: 0 var(--space-sm);
+          padding-bottom: var(--space-xl);
+        }
+
+        .section {
+          padding: var(--space-2xl) 0;
+        }
+
+        /* Hero Section */
+        .hero-actions {
+          flex-direction: row;
+          margin: auto;
+          gap: var(--space-md);
+          justify-content: center;
+          align-items: stretch;
+        }
+
+        .btn {
+          width: 40%;
+          min-height: 3.2rem;
+          display: flex;
+          text-align: center;
+          align-items: center;
+          justify-content: center;
+          font-size: 0.7rem;
+          padding: 0.5rem 1.2rem;
+        }
+
+        .hero-image-card img {
+          height: 150px;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .stat-card {
+          padding: var(--space-md);
+        }
+
+        /* About Section */
+        .about-content {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+
+        .about-image-grid {
+          height: 200px;
+        }
+
+        .about-image-item {
+          height: 100%;
+        }
+
+        .about-image-item:first-child {
+          transform: translateY(var(--space-xl));
+        }
+
+        /* Vision Section */
+        .vision-grid {
+          grid-template-columns: 1fr;
+          justify-items: center;
+          align-items: stretch;
+        }
+
+        .vision-card {
+          width: 80%;
+          margin: 0 0 var(--space-md);
+          padding: var(--space-xl);
+        }
+
+        .vision-card h3 {
+          font-size: clamp(1.1rem, 2vw, 1.5rem);
+          min-height: auto;
+        }
+
+        .vision-card p {
+          font-size: 0.8rem;
+          min-height: auto;
+        }
+
+        /* Model Section */
+        .model-step-content {
+          padding: var(--space-md);
+        }
+
+        .model-step-content h3 {
+          font-size: clamp(1.1rem, 2vw, 1.5rem);
+        }
+
+        .model-step-content p {
+          font-size: 0.8rem;
+        }
+
+        /* Benefits/Impact Section */
+        .benefits-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .benefit-card {
+          flex-direction: column;
+          text-align: center;
+          width: 100%;
+          margin: 0 0 var(--space-md);
+        }
+
+        .benefit-icon {
+          margin: 0 auto;
+        }
+
+        .benefit-content {
+          text-align: center;
+        }
+
+        /* Testimonials Section */
+        .responsive-container-block.content {
+          padding: var(--space-xl);
+          width: 70%;
+          margin: var(--space-xl) 0 var(--space-2xl) 0;
+        }
+
+        .profile-image {
+          width: 75px;
+          height: 75px;
+          left: -40px;
+        }
+
+        .text-blk.info {
+          margin: var(--space-sm) 0 var(--space-md) -25px;
+          font-size: 16px;
+          line-height: 24px;
+        }
+
+        .text-blk.name {
+          margin: var(--space-xl) 0 0 var(--space-sm);
+        }
+
+        .text-blk.desig {
+          margin: var(--space-xs) 0 0 var(--space-sm);
+        }
+
+        .text-blk.desc {
+          font-size: 16px;
+          line-height: 24px;
+          margin: 0 0 var(--space-lg) 0;
+        }
+
+        .text-blk.heading {
+          font-size: 18px;
+          line-height: 28px;
+        }
+
+        .text-blk.title {
+          font-size: 26px;
+          line-height: 36px;
+        }
+
+        .nav-chevron {
+          width: 30px;
+          height: 30px;
+        }
+
+        .swiper-slide {
+          width: 90%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Include Navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <div class="hero-badge">
+              <i class="fas fa-leaf"></i>
+              <span>Sustainable Energy Solutions</span>
+            </div>
+            <h1>Transforming Grain into Green Energy</h1>
+            <p class="text-lg">
+              Leading India's sustainable energy revolution through innovative
+              grain-based ethanol production with our cooperative-driven
+              approach and 200 KLPD capacity facility.
+            </p>
+            <div class="hero-actions">
+              <a href="#about" class="btn btn-primary">
+                <span>Discover Our Mission</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+              <a href="#model" class="btn btn-secondary">
+                <span>Our Cooperative Model</span>
+              </a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <div class="hero-image-card">
+              <img
+                src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=2070"
+                alt="Sustainable farming"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card animate-on-scroll">
+            <div class="stat-number" data-target="200">0</div>
+            <div class="stat-label">KLPD Production Capacity</div>
+          </div>
+          <div class="stat-card animate-on-scroll">
+            <div class="stat-number" data-target="5000">0</div>
+            <div class="stat-label">Farmers in Network</div>
+          </div>
+          <div class="stat-card animate-on-scroll">
+            <div class="stat-number" data-target="85">0</div>
+            <div class="stat-label">% CO₂ Reduction</div>
+          </div>
+          <div class="stat-card animate-on-scroll">
+            <div class="stat-number" data-target="1200">0</div>
+            <div class="stat-label">Jobs Created</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <div class="section-badge">
+            <i class="fas fa-handshake"></i>
+            <span>Cooperative Excellence</span>
+          </div>
+          <h2>Revolutionizing Rural Energy Production</h2>
+          <p class="text-lg">
+            We're building India's most sustainable ethanol production ecosystem
+            through farmer cooperation, ex-servicemen leadership, and
+            cutting-edge technology.
+          </p>
+        </div>
+
+        <div class="about-content">
+          <div class="about-text animate-on-scroll">
+            <h3>Our Cooperative Advantage</h3>
+            <p>
+              Shree Balaji Biofuels operates through Venkateshwara Co-operative
+              Power and Agro Processing Ltd., ensuring transparent procurement,
+              fair pricing, and direct farmer benefits without middlemen
+              interference.
+            </p>
+
+            <h3>Ex-Servicemen Leadership</h3>
+            <p>
+              Our operations are led by dedicated ex-servicemen who bring
+              unmatched discipline, integrity, and commitment to every aspect of
+              our ethanol production process—from agriculture support to final
+              product delivery.
+            </p>
+
+            <h3>Technology & Sustainability</h3>
+            <p>
+              Using advanced grain-to-ethanol conversion technology, we maximize
+              yield while minimizing environmental impact, contributing to
+              India's energy security and climate goals.
+            </p>
+          </div>
+
+          <div class="about-image animate-on-scroll">
+            <div class="about-image-grid">
+              <div class="about-image-item">
+                <img
+                  src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?q=80&w=2088"
+                  alt="Modern farming technology"
+                />
+              </div>
+              <div class="about-image-item">
+                <img
+                  src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=2070"
+                  alt="Grain processing facility"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="vision section">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <div class="section-badge">
+            <i class="fas fa-eye"></i>
+            <span>Our Vision</span>
+          </div>
+          <h2>सहकार से समृद्धि - Prosperity Through Cooperation</h2>
+          <p class="text-lg">
+            Building a sustainable future where farmers prosper, communities
+            thrive, and India leads in clean energy production.
+          </p>
+        </div>
+
+        <div class="vision-grid">
+          <div class="vision-card animate-on-scroll">
+            <div class="vision-icon">
+              <i class="fas fa-globe-americas"></i>
+            </div>
+            <h3>Environmental Leadership</h3>
+            <p>
+              Establish India as a global leader in sustainable biofuel
+              production, reducing carbon emissions by 85% compared to fossil
+              fuels and supporting climate resilience.
+            </p>
+          </div>
+
+          <div class="vision-card animate-on-scroll">
+            <div class="vision-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Farmer Empowerment</h3>
+            <p>
+              Create a farmer-first ecosystem ensuring fair pricing, direct
+              market access, and increased income through transparent
+              cooperative operations.
+            </p>
+          </div>
+
+          <div class="vision-card animate-on-scroll">
+            <div class="vision-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Energy Independence</h3>
+            <p>
+              Contribute to India's Ethanol Blending Programme and reduce
+              dependency on crude oil imports, strengthening national energy
+              security.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Model Section -->
+    <section id="model" class="model section">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <div class="section-badge">
+            <i class="fas fa-cogs"></i>
+            <span>Our Process</span>
+          </div>
+          <h2>End-to-End Cooperative Model</h2>
+          <p class="text-lg">
+            From seed to sustainable fuel - our integrated approach ensures
+            quality, transparency, and farmer prosperity at every step.
+          </p>
+        </div>
+
+        <div class="model-timeline">
+          <div class="model-step animate-on-scroll">
+            <div class="model-step-content">
+              <h3>Agricultural Input Support</h3>
+              <p>
+                Provide farmers with premium seeds, fertilizers, and pesticides
+                through our cooperative network. Our agricultural experts ensure
+                optimal crop yields using sustainable farming practices and
+                modern techniques.
+              </p>
+            </div>
+          </div>
+
+          <div class="model-step animate-on-scroll">
+            <div class="model-step-content">
+              <h3>Transparent Procurement</h3>
+              <p>
+                Direct procurement from farmers at fair market prices with
+                complete transparency. Our digital tracking system eliminates
+                middlemen and ensures farmers receive maximum value for their
+                produce.
+              </p>
+            </div>
+          </div>
+
+          <div class="model-step animate-on-scroll">
+            <div class="model-step-content">
+              <h3>Expert Management</h3>
+              <p>
+                Factory operations managed by experienced ex-servicemen bringing
+                discipline, integrity, and operational excellence. Our team
+                ensures consistent quality and efficient production processes.
+              </p>
+            </div>
+          </div>
+
+          <div class="model-step animate-on-scroll">
+            <div class="model-step-content">
+              <h3>Green Fuel Production</h3>
+              <p>
+                Advanced grain-to-ethanol conversion using cutting-edge
+                technology. Our 200 KLPD facility produces high-quality ethanol
+                that exceeds industry standards while minimizing environmental
+                impact.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits/Impact Section -->
+    <section id="benefits" class="benefits section">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <div class="section-badge">
+            <i class="fas fa-chart-line"></i>
+            <span>Impact</span>
+          </div>
+          <h2>Transforming India's Energy Landscape</h2>
+          <p class="text-lg">
+            Our initiative creates positive impact across environmental,
+            economic, and social dimensions.
+          </p>
+        </div>
+        <div class="benefits-grid">
+          <div class="benefit-card animate-on-scroll">
+            <div class="benefit-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <div class="benefit-content">
+              <h3>Energy Security</h3>
+              <p>
+                Reduce crude oil import dependency, saving foreign exchange and
+                strengthening India's energy independence through domestic
+                biofuel production.
+              </p>
+            </div>
+          </div>
+          <div class="benefit-card animate-on-scroll">
+            <div class="benefit-icon">
+              <i class="fas fa-seedling"></i>
+            </div>
+            <div class="benefit-content">
+              <h3>Environmental Impact</h3>
+              <p>
+                Achieve 85% reduction in greenhouse gas emissions compared to
+                fossil fuels, supporting India's climate commitments and cleaner
+                air initiatives.
+              </p>
+            </div>
+          </div>
+          <div class="benefit-card animate-on-scroll">
+            <div class="benefit-icon">
+              <i class="fas fa-coins"></i>
+            </div>
+            <div class="benefit-content">
+              <h3>Rural Prosperity</h3>
+              <p>
+                Increase farmer income by 25% through fair pricing and direct
+                market access, while creating 1,200+ direct and indirect
+                employment opportunities.
+              </p>
+            </div>
+          </div>
+          <div class="benefit-card animate-on-scroll">
+            <div class="benefit-icon">
+              <i class="fas fa-industry"></i>
+            </div>
+            <div class="benefit-content">
+              <h3>Make in India</h3>
+              <p>
+                Boost domestic manufacturing and agro-processing capabilities,
+                contributing to Atmanirbhar Bharat and technological
+                self-reliance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+      <div class="container">
+        <div class="section-header testimonials-header animate-on-scroll">
+          <div class="section-badge">
+            <i class="fas fa-quote-left"></i>
+            <span>Our Testimonials</span>
+          </div>
+          <h2>Real Stories from Our Cooperative Partners</h2>
+          <p class="text-lg">
+            From seed to sustainable fuel - hear how our integrated approach
+            ensures quality, transparency, and farmer prosperity at every step.
+          </p>
+        </div>
+        <div class="swiper-container mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="responsive-container-block content">
+                <p class="text-blk quotes">“</p>
+                <p class="text-blk name">Rajesh Kumar</p>
+                <img
+                  class="image-block profile-image"
+                  src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250&d=identicon"
+                  alt="Avatar 1"
+                />
+                <p class="text-blk desig">Farmer, Uttar Pradesh</p>
+                <p class="text-blk info">
+                  “Joining Shree Balaji Biofuels has transformed my livelihood.
+                  The fair pricing and support for quality seeds have doubled my
+                  income this year.”
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="responsive-container-block content">
+                <p class="text-blk quotes">“</p>
+                <p class="text-blk name">Anita Sharma</p>
+                <img
+                  class="image-block profile-image"
+                  src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=251&d=identicon"
+                  alt="Avatar 2"
+                />
+                <p class="text-blk desig">Farmer, Maharashtra</p>
+                <p class="text-blk info">
+                  “The cooperative model ensures we get timely payments and
+                  guidance, making farming more sustainable and profitable.”
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="responsive-container-block content">
+                <p class="text-blk quotes">“</p>
+                <p class="text-blk name">Vikram Singh</p>
+                <img
+                  class="image-block profile-image"
+                  src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=252&d=identicon"
+                  alt="Avatar 3"
+                />
+                <p class="text-blk desig">Farmer, Punjab</p>
+                <p class="text-blk info">
+                  “With Shree Balaji’s support, I’ve seen a significant
+                  reduction in my costs and an increase in crop yield, thanks to
+                  their expertise.”
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="responsive-container-block content">
+                <p class="text-blk quotes">“</p>
+                <p class="text-blk name">Priya Patel</p>
+                <img
+                  class="image-block profile-image"
+                  src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=254&d=identicon"
+                  alt="Avatar 5"
+                />
+                <p class="text-blk desig">Farmer, Gujarat</p>
+                <p class="text-blk info">
+                  “The ex-servicemen team’s dedication has made a huge
+                  difference in managing our fields efficiently.”
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="responsive-container-block content">
+                <p class="text-blk quotes">“</p>
+                <p class="text-blk name">Suresh Reddy</p>
+                <img
+                  class="image-block profile-image"
+                  src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=254&d=identicon"
+                  alt="Avatar 5"
+                />
+                <p class="text-blk desig">Farmer, Andhra Pradesh</p>
+                <p class="text-blk info">
+                  “I’m proud to contribute to India’s green energy goals while
+                  seeing my family prosper through this initiative.”
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination container-block"></div>
+          <button class="nav-chevron prev" id="prev-btn">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="nav-chevron next" id="next-btn">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <!-- <section class="cta section">
+      <div class="container">
+        <div class="section-header partner animate-on-scroll">
+          <h2>Join the Green Energy Revolution</h2>
+          <p>
+            Be part of India's sustainable future. Together, we can create
+            prosperity through cooperation and build a cleaner tomorrow.
+          </p>
+          <a href="#" class="btn btn-primary">
+            <span>Partner With Us</span>
+            <i class="fas fa-handshake"></i>
+          </a>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      // Load navbar and footer
+      fetch("navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
+
+          // Add .current class to the nav link matching the current page
+          const currentPath =
+            window.location.pathname.split("/").pop() || "index.html";
+          document.querySelectorAll(".nav-links a").forEach((link) => {
+            if (link.getAttribute("href") === currentPath) {
+              link.classList.add("current");
+            }
+          });
+
+          // Mobile menu toggle
+          const menuBtn = document.querySelector(".mobile-menu-btn");
+          if (menuBtn) {
+            menuBtn.addEventListener("click", (e) => {
+              e.stopPropagation();
+              const navLinks = document.querySelector(".nav-links");
+              const overlay = document.querySelector(".mobile-menu-overlay");
+              const barsIcon = menuBtn.querySelector(".fa-bars");
+              const timesIcon = menuBtn.querySelector(".fa-times");
+
+              if (navLinks && overlay && barsIcon && timesIcon) {
+                navLinks.classList.toggle("active");
+                overlay.classList.toggle("active");
+                barsIcon.style.display = navLinks.classList.contains("active")
+                  ? "none"
+                  : "block";
+                timesIcon.style.display = navLinks.classList.contains("active")
+                  ? "block"
+                  : "none";
+              }
+            });
+          }
+
+          // Close menu when clicking overlay
+          const overlay = document.querySelector(".mobile-menu-overlay");
+          if (overlay) {
+            overlay.addEventListener("click", () => {
+              const navLinks = document.querySelector(".nav-links");
+              const menuBtn = document.querySelector(".mobile-menu-btn");
+              const barsIcon = menuBtn?.querySelector(".fa-bars");
+              const timesIcon = menuBtn?.querySelector(".fa-times");
+
+              if (navLinks && barsIcon && timesIcon) {
+                navLinks.classList.remove("active");
+                overlay.classList.remove("active");
+                barsIcon.style.display = "block";
+                timesIcon.style.display = "none";
+              }
+            });
+          }
+
+          // Close menu when clicking a nav link
+          document.querySelectorAll(".nav-links a").forEach((link) => {
+            link.addEventListener("click", () => {
+              const navLinks = document.querySelector(".nav-links");
+              const menuBtn = document.querySelector(".mobile-menu-btn");
+              const overlay = document.querySelector(".mobile-menu-overlay");
+              const barsIcon = menuBtn?.querySelector(".fa-bars");
+              const timesIcon = menuBtn?.querySelector(".fa-times");
+
+              if (navLinks && overlay && barsIcon && timesIcon) {
+                navLinks.classList.remove("active");
+                overlay.classList.remove("active");
+                barsIcon.style.display = "block";
+                timesIcon.style.display = "none";
+              }
+            });
+          });
+
+          // Close menu on resize to desktop
+          window.addEventListener("resize", () => {
+            if (window.innerWidth > 960) {
+              const navLinks = document.querySelector(".nav-links");
+              const menuBtn = document.querySelector(".mobile-menu-btn");
+              const overlay = document.querySelector(".mobile-menu-overlay");
+              const barsIcon = menuBtn?.querySelector(".fa-bars");
+              const timesIcon = menuBtn?.querySelector(".fa-times");
+
+              if (navLinks && overlay && barsIcon && timesIcon) {
+                navLinks.classList.remove("active");
+                overlay.classList.remove("active");
+                barsIcon.style.display = "block";
+                timesIcon.style.display = "none";
+              }
+            }
+          });
+        });
+
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        });
+
+      // Header scroll effect
+      window.addEventListener("scroll", () => {
+        const header = document.getElementById("header");
+        if (window.scrollY > 100) {
+          header.classList.add("header-scrolled");
+        } else {
+          header.classList.remove("header-scrolled");
+        }
+      });
+
+      // Smooth scrolling for navigation links
+      document.addEventListener("click", (e) => {
+        if (e.target.matches('a[href^="#"]')) {
+          e.preventDefault();
+          const target = document.querySelector(e.target.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        }
+      });
+
+      // Scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animated");
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Counter animation
+      function animateCounters() {
+        const counters = document.querySelectorAll(".stat-number");
+
+        counters.forEach((counter) => {
+          const target = parseInt(counter.getAttribute("data-target"));
+          const duration = 2000;
+          const step = target / (duration / 16);
+          let current = 0;
+
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              counter.textContent = target;
+              clearInterval(timer);
+            } else {
+              counter.textContent = Math.floor(current);
+            }
+          }, 16);
+        });
+      }
+
+      // Trigger counter animation when stats section is visible
+      const statsObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateCounters();
+              statsObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      const statsSection = document.querySelector(".stats");
+      if (statsSection) {
+        statsObserver.observe(statsSection);
+      }
+
+      // Mobile menu toggle
+      document.addEventListener("click", (e) => {
+        if (e.target.closest(".mobile-menu-btn")) {
+          console.log("Mobile menu clicked");
+        }
+      });
+
+      // Add loading animation
+      window.addEventListener("load", () => {
+        document.body.style.opacity = "1";
+      });
+
+      // Performance optimization: Lazy load images
+      if ("IntersectionObserver" in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.src = img.dataset.src || img.src;
+              img.classList.remove("lazy");
+              imageObserver.unobserve(img);
+            }
+          });
+        });
+
+        document.querySelectorAll("img[data-src]").forEach((img) => {
+          imageObserver.observe(img);
+        });
+      }
+
+      // Testimonials Swiper with auto cycling, infinite loop, and timer reset
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        centeredSlides: true,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: "#next-btn",
+          prevEl: "#prev-btn",
+        },
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        breakpoints: {
+          300: {
+            slidesPerView: 1,
+          },
+          501: {
+            slidesPerView: 1,
+          },
+          769: {
+            slidesPerView: 1,
+          },
+          1025: {
+            slidesPerView: 1,
+          },
+        },
+      });
+
+      // Reset autoplay timer on manual navigation
+      const prevBtn = document.getElementById("prev-btn");
+      const nextBtn = document.getElementById("next-btn");
+
+      [prevBtn, nextBtn].forEach((btn) => {
+        btn.addEventListener("click", () => {
+          swiper.autoplay.stop();
+          swiper.autoplay.start();
+        });
+      });
+    </script>
+  </body>
+</html>
